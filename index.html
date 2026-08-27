@@ -3,17 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>El Criterio de Ross-Heideck | Miguel Camacaro Ediciones</title>
-  <meta name="description" content="Curso Online: El Criterio de Ross-Heideck [Interpretando la fuente original y el nuevo marco normativo]. Prof. Ing. Miguel Camacaro Pérez, M.Sc.">
+  <title>Escuela de Valuación Miguel Camacaro [EVMC] | Libros & Cursos Académicos</title>
+  <meta name="description" content="Portal informativo y académico de la Escuela de Valuación Miguel Camacaro [EVMC], Miguel Camacaro Ediciones y Mundo Valor. Formación especializada y publicaciones de tasación.">
   
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   
-  <!-- PDF.js CDN -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
-
   <style>
     :root {
       --bg-dark: #070c18;
@@ -65,20 +62,19 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      gap: 1.5rem;
     }
 
-    .brand-logo {
+    .brand-logo-left, .brand-logo-right {
       display: flex;
       align-items: center;
-      gap: 1.2rem;
       text-decoration: none;
-      color: #fff;
     }
 
     .logo-container {
       background: #ffffff;
-      padding: 4px 8px;
-      border-radius: 8px;
+      padding: 6px 10px;
+      border-radius: 10px;
       border: 2px solid var(--accent-gold);
       display: flex;
       align-items: center;
@@ -86,50 +82,28 @@
       box-shadow: 0 4px 12px rgba(0,0,0,0.5);
     }
 
-    .brand-logo img {
+    .logo-container img {
       height: 52px;
       width: auto;
       object-fit: contain;
       display: block;
     }
 
-    .brand-text {
+    .nav-center {
       display: flex;
-      flex-direction: column;
-    }
-
-    .brand-text .name {
-      font-family: var(--font-title);
-      font-weight: 900;
-      font-size: 1.1rem;
-      letter-spacing: 1.5px;
-      color: var(--accent-gold);
-      text-shadow: 0 2px 4px rgba(0,0,0,0.5);
-    }
-
-    .brand-text .sub {
-      font-size: 0.75rem;
-      color: #e2e8f0;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      font-weight: 600;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 1.1rem;
+      gap: 1.5rem;
       align-items: center;
     }
 
-    .nav-links a {
+    .nav-center a {
       color: var(--text-muted);
       text-decoration: none;
-      font-size: 0.85rem;
+      font-size: 0.9rem;
       font-weight: 600;
       transition: color 0.2s;
     }
 
-    .nav-links a:hover {
+    .nav-center a:hover {
       color: var(--accent-gold);
     }
 
@@ -159,18 +133,6 @@
       background: linear-gradient(135deg, #d97706, #f59e0b);
     }
 
-    .btn-sim {
-      background: linear-gradient(135deg, #047857, #059669);
-      color: #ffffff;
-      box-shadow: 0 4px 15px rgba(5, 150, 105, 0.4);
-    }
-
-    .btn-sim:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(5, 150, 105, 0.6);
-      background: linear-gradient(135deg, #059669, #10b981);
-    }
-
     .btn-donate {
       background: linear-gradient(135deg, #1d4ed8, #2563eb);
       color: #ffffff;
@@ -181,7 +143,6 @@
     .btn-donate:hover {
       transform: translateY(-2px);
       box-shadow: 0 6px 20px rgba(37, 99, 235, 0.6);
-      background: linear-gradient(135deg, #2563eb, #3b82f6);
     }
 
     .btn-outline {
@@ -197,7 +158,7 @@
 
     /* Hero Section */
     .hero {
-      padding: 4rem 0 3.5rem;
+      padding: 5rem 0 4.5rem;
       background: radial-gradient(circle at 50% 10%, #172554 0%, #070c18 80%);
       border-bottom: 1px solid var(--border-card);
     }
@@ -215,19 +176,19 @@
       gap: 0.4rem;
       background: rgba(245, 158, 11, 0.1);
       border: 1px solid rgba(245, 158, 11, 0.3);
-      padding: 0.35rem 0.9rem;
+      padding: 0.35rem 1rem;
       border-radius: 999px;
       font-size: 0.8rem;
       font-weight: 700;
       color: var(--accent-gold);
       margin-bottom: 1.2rem;
       text-transform: uppercase;
-      letter-spacing: 0.5px;
+      letter-spacing: 1px;
     }
 
     .hero-title {
       font-family: var(--font-title);
-      font-size: clamp(2rem, 3.8vw, 3rem);
+      font-size: clamp(2.2rem, 4.2vw, 3.4rem);
       line-height: 1.2;
       margin-bottom: 1.2rem;
       color: #ffffff;
@@ -239,10 +200,10 @@
 
     .hero-lead {
       font-family: var(--font-reading);
-      font-size: 1.1rem;
+      font-size: 1.12rem;
       color: #cbd5e1;
       margin-bottom: 2rem;
-      line-height: 1.7;
+      line-height: 1.8;
     }
 
     .hero-btns {
@@ -251,38 +212,140 @@
       flex-wrap: wrap;
     }
 
-    /* Course Banner Card */
-    .course-banner-card {
+    /* Hero Logo Showcase Card */
+    .hero-logo-card {
       background: linear-gradient(145deg, #1e293b, #0f172a);
       border: 1px solid rgba(255, 255, 255, 0.15);
-      border-radius: 16px;
-      padding: 1.2rem;
+      border-radius: 24px;
+      padding: 2.5rem 2rem;
       text-align: center;
-      box-shadow: 0 20px 50px rgba(0,0,0,0.8), 0 0 30px rgba(29, 78, 216, 0.25);
+      box-shadow: 0 25px 60px rgba(0,0,0,0.85), 0 0 35px rgba(29, 78, 216, 0.3);
     }
 
-    .course-banner-card img.banner-art {
+    .logo-badge-lg {
+      width: 220px;
+      height: 220px;
+      margin: 0 auto 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      filter: drop-shadow(0 10px 20px rgba(0,0,0,0.6));
+    }
+
+    .logo-badge-lg img {
       width: 100%;
-      height: auto;
-      border-radius: 10px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.6);
-      margin-bottom: 1rem;
+      height: 100%;
+      object-fit: contain;
       display: block;
     }
 
-    .metadata-strip {
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-      padding-top: 0.8rem;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0.5rem;
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      text-align: left;
+    .hero-logo-card h3 {
+      font-family: var(--font-title);
+      font-size: 1.35rem;
+      color: #fff;
+      margin-bottom: 0.4rem;
     }
 
-    .metadata-strip strong {
-      color: #e2e8f0;
+    .hero-logo-card p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* Author Section (Debajo de esa sección con su leyenda e íconos) */
+    .author-section {
+      padding: 4.5rem 0;
+      background: radial-gradient(circle at 50% 50%, #0f172a 0%, #070c18 85%);
+      border-bottom: 1px solid var(--border-card);
+    }
+
+    .author-card-centered {
+      background: linear-gradient(145deg, #1e293b, #0f172a);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 24px;
+      padding: 3rem 2.5rem;
+      max-width: 850px;
+      margin: 0 auto;
+      text-align: center;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.85), 0 0 35px rgba(245, 158, 11, 0.15);
+    }
+
+    .author-photo-xl {
+      width: 190px;
+      height: 190px;
+      border-radius: 50%;
+      border: 3px solid var(--accent-gold);
+      padding: 5px;
+      margin: 0 auto 1.5rem;
+      overflow: hidden;
+      background: #070c18;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    }
+
+    .author-photo-xl img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+      display: block;
+    }
+
+    .author-card-centered h3 {
+      font-family: var(--font-title);
+      font-size: 1.6rem;
+      color: #fff;
+      margin-bottom: 0.4rem;
+    }
+
+    .author-card-centered .subtitle {
+      color: #60a5fa;
+      font-weight: 700;
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .author-quote {
+      font-family: var(--font-reading);
+      font-size: 1.05rem;
+      color: #cbd5e1;
+      line-height: 1.8;
+      margin-bottom: 2rem;
+      font-style: italic;
+    }
+
+    .author-socials-icons {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    .social-icon-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-card);
+      padding: 0.6rem 1.2rem;
+      border-radius: 999px;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.85rem;
+      transition: all 0.2s ease;
+    }
+
+    .social-icon-btn:hover {
+      background: rgba(245, 158, 11, 0.15);
+      border-color: var(--accent-gold);
+      color: var(--accent-gold);
+      transform: translateY(-2px);
+    }
+
+    .social-icon-btn svg {
+      width: 18px;
+      height: 18px;
+      fill: currentColor;
     }
 
     /* Content Sections */
@@ -309,268 +372,72 @@
       margin: 0 auto;
     }
 
-    /* Author Profile */
-    .author-card {
+    /* Catalog Grid */
+    .catalog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 1.8rem;
+    }
+
+    .catalog-card {
       background: var(--bg-card);
       border: 1px solid var(--border-card);
-      border-radius: 20px;
-      padding: 3rem;
-      display: grid;
-      grid-template-columns: 240px 1fr;
-      gap: 3rem;
-      align-items: center;
-    }
-
-    .author-photo-frame {
-      width: 220px;
-      height: 220px;
-      border-radius: 50%;
-      border: 3px solid var(--accent-gold);
-      padding: 6px;
-      margin: 0 auto;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #1e293b;
-    }
-
-    .author-photo-frame img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center 15%;
-      border-radius: 50%;
-      display: block;
-    }
-
-    .author-info h3 {
-      font-family: var(--font-title);
-      font-size: 1.8rem;
-      color: #fff;
-      margin-bottom: 0.3rem;
-    }
-
-    .author-info .degree {
-      color: #60a5fa;
-      font-weight: 700;
-      font-size: 0.95rem;
-      margin-bottom: 1.2rem;
-    }
-
-    .author-bio {
-      font-family: var(--font-reading);
-      font-size: 1.05rem;
-      color: #cbd5e1;
-      line-height: 1.8;
-      margin-bottom: 1.5rem;
-    }
-
-    .dedication-box {
-      background: rgba(255, 255, 255, 0.03);
-      border-left: 3px solid var(--royal-gold);
-      padding: 0.8rem 1.2rem;
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      border-radius: 0 8px 8px 0;
-    }
-
-    /* Tools & Videos Grid */
-    .tools-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .tool-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-card);
-      border-radius: 14px;
-      padding: 1.8rem;
-      text-align: center;
+      border-radius: 16px;
+      padding: 2rem;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       transition: all 0.25s ease;
-      text-decoration: none;
+      position: relative;
+      overflow: hidden;
     }
 
-    .tool-card:hover {
+    .catalog-card:hover {
       transform: translateY(-4px);
       border-color: var(--accent-gold);
       box-shadow: 0 10px 25px -5px rgba(245, 158, 11, 0.2);
     }
 
-    .tool-card h4 {
-      font-size: 1.15rem;
+    .item-badge {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      background: rgba(245, 158, 11, 0.15);
+      color: var(--accent-gold);
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid rgba(245, 158, 11, 0.3);
+    }
+
+    .catalog-card h3 {
+      font-size: 1.2rem;
       color: #fff;
       margin-bottom: 0.8rem;
+      line-height: 1.3;
+      padding-right: 4rem;
     }
 
-    .tool-card p {
-      font-size: 0.85rem;
+    .catalog-card p {
+      font-size: 0.88rem;
       color: var(--text-muted);
       margin-bottom: 1.5rem;
+      line-height: 1.5;
     }
 
-    .tool-btn {
-      background: linear-gradient(135deg, #1e3a8a, #1d4ed8);
-      color: #ffffff;
-      padding: 0.5rem 1rem;
-      border-radius: 6px;
-      font-weight: 700;
-      font-size: 0.85rem;
-      display: inline-block;
-    }
-
-    /* Videos Grid */
-    .videos-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      max-width: 800px;
-      margin: 2.5rem auto 0;
-    }
-
-    .video-container {
-      position: relative;
-      width: 100%;
-      padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
-      height: 0;
-      border-radius: 12px;
-      overflow: hidden;
-      border: 1px solid var(--border-card);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-    }
-
-    .video-container iframe {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%;
-      height: 100%;
-      border: none;
-    }
-
-    /* Multi-PDF Reader Viewport */
-    .reader-section {
-      padding: 3rem 0 5rem;
-      background: #050811;
-    }
-
-    .reader-frame {
-      background: #0f172a;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: 18px;
-      box-shadow: 0 25px 60px rgba(0,0,0,0.9);
-      overflow: hidden;
+    .card-footer {
       display: flex;
-      flex-direction: column;
-      height: 90vh;
-      position: relative;
-    }
-
-    .reader-toolbar {
-      background: #070c18;
-      padding: 0.75rem 1.5rem;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-      display: flex;
-      justify-content: space-between;
       align-items: center;
-      flex-wrap: wrap;
-      gap: 0.75rem;
+      justify-content: flex-end;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding-top: 1.2rem;
     }
 
-    .reader-doc-switch {
+    .card-actions {
       display: flex;
       gap: 0.5rem;
-      flex-wrap: wrap;
     }
-
-    .reader-controls-group {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .zoom-label {
-      font-weight: 700;
-      color: var(--accent-gold);
-      font-size: 0.85rem;
-      min-width: 50px;
-      text-align: center;
-    }
-
-    .reader-stage {
-      flex: 1;
-      background: #0b0f19;
-      overflow: auto;
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      position: relative;
-      padding: 1.5rem;
-    }
-
-    .book-spread {
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      box-shadow: 0 20px 50px rgba(0,0,0,0.85);
-      background: #ffffff;
-      border-radius: 4px;
-      position: relative;
-      margin: auto;
-    }
-
-    .book-spread.double-mode::after {
-      content: "";
-      position: absolute;
-      top: 0; bottom: 0; left: 50%;
-      width: 14px;
-      transform: translateX(-50%);
-      background: linear-gradient(to right, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.45) 45%, rgba(255,255,255,0.08) 50%, rgba(0,0,0,0.45) 55%, rgba(0,0,0,0.2) 100%);
-      pointer-events: none;
-      z-index: 5;
-    }
-
-    .page-canvas {
-      display: block;
-      width: auto;
-      height: auto;
-    }
-
-    .reader-footer {
-      background: #070c18;
-      padding: 0.75rem 1.5rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.15);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .reader-loader {
-      position: absolute;
-      inset: 0;
-      background: #0f172a;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      z-index: 20;
-      transition: opacity 0.3s ease;
-    }
-
-    .spinner {
-      width: 45px;
-      height: 45px;
-      border: 3px solid rgba(255,255,255,0.1);
-      border-top-color: var(--accent-gold);
-      border-radius: 50%;
-      animation: spin 0.8s linear infinite;
-      margin-bottom: 1rem;
-    }
-
-    @keyframes spin { to { transform: rotate(360deg); } }
 
     footer {
       border-top: 1px solid var(--border-card);
@@ -581,369 +448,298 @@
       background: var(--bg-dark);
     }
 
-    @media (max-width: 900px) {
-      .hero-grid, .author-card, .videos-grid {
-        grid-template-columns: 1fr;
-        text-align: center;
-      }
-      .author-photo-frame { margin-bottom: 1.5rem; }
-      .book-spread::after, #canvas-r { display: none !important; }
+    @media (max-width: 950px) {
+      .hero-grid { grid-template-columns: 1fr; text-align: center; }
       .hero-btns { justify-content: center; }
-      .nav-links { display: none; }
-      .reader-frame { height: 80vh; }
+      .nav-center { display: none; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Header -->
+  <!-- Header con Logos Grandes a los Lados y Pestañas en el Centro -->
   <header>
     <div class="container nav-wrap">
-      <a href="#" class="brand-logo">
+      <!-- Izquierda: Miguel Camacaro Ediciones -->
+      <a href="#" class="brand-logo-left" title="Miguel Camacaro Ediciones">
         <div class="logo-container">
-          <img 
-            src="LogoMCE_3.png" 
-            alt="Miguel Camacaro Ediciones" 
-            onerror="this.onerror=null; this.src='LogoMCE.png';">
-        </div>
-        <div class="brand-text">
-          <span class="name">MIGUEL CAMACARO</span>
-          <span class="sub">EDICIONES • LIBROS PREMIUM</span>
+          <img src="LogoMCE_4.png" alt="Miguel Camacaro Ediciones" onerror="this.onerror=null; this.src='LogoMCE.png';">
         </div>
       </a>
-      <nav class="nav-links">
-        <a href="#curso">El Curso</a>
-        <a href="#herramientas">Herramientas & Videos</a>
-        <a href="#autor">El Profesor</a>
-        <a href="#lector" class="btn btn-gold">📖 Lecturas Online</a>
-        <a href="https://paypal.me/spilimcurso" target="_blank" rel="noopener noreferrer" class="btn btn-donate">☕ Donar</a>
+
+      <!-- Centro: Pestañas de Navegación y Botón de Aportar -->
+      <nav class="nav-center">
+        <a href="#libros">Libros</a>
+        <a href="#cursos">Cursos Online</a>
+        <a href="https://paypal.me/spilimcurso" target="_blank" rel="noopener noreferrer" class="btn btn-donate">☕ Aportar / Donar</a>
       </nav>
+
+      <!-- Derecha: Mundo Valor -->
+      <a href="#" class="brand-logo-right" title="Mundo Valor">
+        <div class="logo-container">
+          <img src="Mundovalor.png" alt="Mundo Valor" onerror="this.onerror=null; this.src='Mundovalor.png';">
+        </div>
+      </a>
     </div>
   </header>
 
   <main>
     <!-- Hero Section -->
-    <section class="hero" id="curso">
+    <section class="hero">
       <div class="container hero-grid">
         <div>
-          <span class="badge-editorial">Curso Especializado • Marco Normativo IGAC</span>
-          <h1 class="hero-title">El Criterio de <span>Ross-Heideck</span></h1>
+          <span class="badge-editorial">Escuela de Valuación Miguel Camacaro [EVMC]</span>
+          <h1 class="hero-title">Investigación, Ediciones y <span>Formación Académica Avanzada</span></h1>
           <p class="hero-lead">
-            Interpretando la fuente original y el nuevo marco normativo basado en el Decreto / Resolución 0941.2026 (Anexo Técnico del IGAC). Profundice en los fundamentos técnicos de la depreciación y valoración de construcciones, maquinaria y equipos.
+            Portal informativo oficial del Prof. Ing. Miguel Camacaro Pérez, M.Sc. Acceso directo al catálogo general de publicaciones especializadas y programas de formación en ingeniería de tasación.
           </p>
           <div class="hero-btns">
-            <a href="#lector" class="btn btn-gold">Ver Material de Lectura</a>
-            <a href="#herramientas" class="btn btn-sim">Herramientas & Videos</a>
-            <a href="https://paypal.me/spilimcurso" target="_blank" rel="noopener noreferrer" class="btn btn-donate">Inscribirse / Donar</a>
+            <a href="#libros" class="btn btn-gold">Explorar Catálogo General</a>
+            <a href="https://paypal.me/spilimcurso" target="_blank" rel="noopener noreferrer" class="btn btn-donate">☕ Aportar al Proyecto</a>
           </div>
         </div>
 
-        <div class="course-banner-card">
-          <img src="28082026 Curso Online.jpg" alt="Curso El Criterio de Ross-Heideck" class="banner-art">
-          <div class="metadata-strip">
-            <div><strong>Profesor:</strong> Ing. Miguel Camacaro P., M.Sc.</div>
-            <div><strong>Duración:</strong> Dos horas académicas</div>
-            <div><strong>Modalidad:</strong> Online / Aforo Limitado</div>
-            <div><strong>Certificado:</strong> Miguel Camacaro Ediciones</div>
+        <div class="hero-logo-card">
+          <div class="logo-badge-lg">
+            <img src="EscuelaDeValuacion_Logo.png" alt="Logotipo Escuela de Valuación Miguel Camacaro" onerror="this.onerror=null; this.src='2GMaquinaria_Heideck.2026.jpg';">
           </div>
+          <h3>Escuela de Valuación [EVMC]</h3>
+          <p>Excelencia, rigor científico e innovación tecnológica en la tasación de bienes y activos industriales.</p>
         </div>
       </div>
     </section>
 
-    <!-- About the Author (Ubicado antes del módulo de Herramientas & Videos) -->
-    <section class="section-block" id="autor">
+    <!-- Author Section (Debajo de esa sección con su leyenda e íconos) -->
+    <section class="author-section" id="profesor">
       <div class="container">
-        <div class="author-card">
-          <div class="author-photo-frame">
-            <img 
-              src="Informal 3_3.png" 
-              alt="Prof. Ing. Miguel Camacaro Pérez, M.Sc."
-              onerror="this.onerror=null; this.src='Informal 3.png';">
+        <div class="author-card-centered">
+          <div class="author-photo-xl">
+            <img src="Informal 3_4.png" alt="Prof. Ing. Miguel Camacaro Pérez, M.Sc." onerror="this.onerror=null; this.src='Informal 3.png';">
           </div>
-          <div class="author-info">
-            <h3>PROF. ING. MIGUEL CAMACARO PÉREZ, M.SC.</h3>
-            <div class="degree">Ingeniero Civil - Tasador • Especialista en Ingeniería Legal y de Tasación</div>
-            <p class="author-bio">
-              Apasionado de la Ciencia de la Valuación, la Ciencia de Datos y la Inteligencia Artificial Generativa. Comprometido con la modernización de los flujos de trabajo de los valuadores, recuperando y rectificando la historia técnica para dotar a los profesionales de herramientas fiables fundamentadas en fuentes primarias.
-            </p>
-            <div class="dedication-box">
-              <strong>Contacto institucional:</strong> cursoediciones@gmail.com • Miguel Camacaro Ediciones & Mundo Valor.
-            </div>
+          <h3>Prof. Ing. Miguel Camacaro Pérez, M.Sc.</h3>
+          <div class="subtitle">Ingeniero Civil - Tasador • Especialista en Ingeniería Legal y de Tasación</div>
+          <p class="author-quote">
+            «El profesor Miguel Camacaro Pérez es un apasionado de la Ciencia de la valuación, de la Ciencia de datos y de la Inteligencia Artificial Generativa, comprometido en impulsar el crecimiento profesional de los valuadores a través de la integración de las últimas herramientas y tecnologías en su flujo de trabajo».
+          </p>
+          
+          <div class="author-socials-icons">
+            <!-- Gmail / Correo -->
+            <a href="mailto:cursoediciones@gmail.com" class="social-icon-btn" title="Enviar correo a cursoediciones@gmail.com">
+              <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-8V6l8 5 8-8v2z"/></svg>
+              Gmail
+            </a>
+            <!-- LinkedIn -->
+            <a href="https://linkedin.com/in/miguel-alberto-camacaro-pérez-4634b2118" target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="Perfil de LinkedIn">
+              <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+              LinkedIn
+            </a>
+            <!-- YouTube Mundo Valor -->
+            <a href="https://www.youtube.com/@MundoValor" target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="Canal de YouTube Mundo Valor">
+              <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+              YouTube
+            </a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Tools & Multimedia Section (Herramientas & Videos) -->
-    <section class="section-block" id="herramientas">
+    <!-- Libros Section -->
+    <section class="section-block" id="libros">
       <div class="container">
         <div class="section-head">
-          <h2>Herramientas & Videos</h2>
-          <p>Plataformas de simulación interactiva, recursos de cálculo normativo y ponencias audiovisuales del curso.</p>
+          <h2>Catálogo de Libros & E-books</h2>
         </div>
 
-        <div class="tools-grid">
-          <a href="https://mundo-valor.github.io/valuacionintegral-costoRH" target="_blank" rel="noopener noreferrer" class="tool-card">
+        <div class="catalog-grid">
+          <!-- Libro 1 -->
+          <div class="catalog-card">
+            <span class="item-badge">E-book</span>
             <div>
-              <h4>Valuación Integral Costo RH</h4>
-              <p>Plataforma avanzada de cálculo integral de costos aplicando el criterio normativo de Ross-Heideck.</p>
+              <h3>El fabuloso avalúo de un castillo medieval</h3>
+              <p>Metodología didáctica y singular aplicada a la valoración de bienes históricos y patrimoniales complejos.</p>
             </div>
-            <span class="tool-btn">Abrir Módulo 1 ➔</span>
-          </a>
+            <div class="card-footer">
+              <div class="card-actions">
+                <a href="https://mundo-valor.github.io/valuacioncastillo-medieval/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding:0.4rem 0.8rem; font-size:0.75rem;">Ver Detalle</a>
+                <a href="https://paypal.me/spilimcurso" target="_blank" rel="noopener noreferrer" class="btn btn-gold" style="padding:0.4rem 0.8rem; font-size:0.75rem;">Aporte / Donación ➔</a>
+              </div>
+            </div>
+          </div>
 
-          <a href="https://mundo-valor.github.io/maquinaria-09412026" target="_blank" rel="noopener noreferrer" class="tool-card">
+          <!-- Libro 2 -->
+          <div class="catalog-card">
+            <span class="item-badge">E-book</span>
             <div>
-              <h4>Módulo Maquinaria 0941</h4>
-              <p>Herramienta especializada para la estimación de valor de maquinaria y equipos según el Decreto 0941.2026.</p>
+              <h3>Casos y cosas de la valuación</h3>
+              <p>Ensayos, anécdotas y resolución de casos prácticos en el ejercicio profesional de la ingeniería de tasación.</p>
             </div>
-            <span class="tool-btn">Acceder Módulo 2 ➔</span>
-          </a>
+            <div class="card-footer">
+              <div class="card-actions">
+                <a href="https://mundo-valor.github.io/casoscosas-valuacion/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding:0.4rem 0.8rem; font-size:0.75rem;">Ver Detalle</a>
+                <a href="https://paypal.me/spilimcurso" target="_blank" rel="noopener noreferrer" class="btn btn-gold" style="padding:0.4rem 0.8rem; font-size:0.75rem;">Aporte / Donación ➔</a>
+              </div>
+            </div>
+          </div>
 
-          <a href="https://mundo-valor.github.io/const-maq.d0912026" target="_blank" rel="noopener noreferrer" class="tool-card">
+          <!-- Libro 3 -->
+          <div class="catalog-card">
+            <span class="item-badge">E-book / Tratado</span>
             <div>
-              <h4>Construcción-Maquinaria</h4>
-              <p>Informe técnico de cálculo y estimación paramétrica aplicada a estructuras y componentes industriales.</p>
+              <h3>Valuación de terrenos industriales, fábricas, edificios comerciales y residenciales</h3>
+              <p>Traducción y adaptación del referente clásico de Erich Heideck para la tasación de activos complejos.</p>
             </div>
-            <span class="tool-btn">Consultar Módulo 3 ➔</span>
-          </a>
+            <div class="card-footer">
+              <div class="card-actions">
+                <a href="https://mundo-valor.github.io/libroheideck-traduccion2025/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding:0.4rem 0.8rem; font-size:0.75rem;">Ver Detalle</a>
+                <a href="https://paypal.me/spilimcurso" target="_blank" rel="noopener noreferrer" class="btn btn-gold" style="padding:0.4rem 0.8rem; font-size:0.75rem;">Aporte / Donación ➔</a>
+              </div>
+            </div>
+          </div>
 
-          <a href="https://mundo-valor.github.io/metodorenta-d09412026" target="_blank" rel="noopener noreferrer" class="tool-card">
+          <!-- Libro 4 -->
+          <div class="catalog-card">
+            <span class="item-badge">E-book</span>
             <div>
-              <h4>Método de Renta 0941</h4>
-              <p>Módulo interactivo para la capitalización de ingresos y estimación de valores por el enfoque de renta.</p>
+              <h3>Una valuación industrial</h3>
+              <p>Estudio de caso aplicado al análisis y desglose técnico de componentes en instalaciones fabriles.</p>
             </div>
-            <span class="tool-btn">Abrir Módulo 4 ➔</span>
-          </a>
-        </div>
+            <div class="card-footer">
+              <div class="card-actions">
+                <a href="https://mundo-valor.github.io/unavaluaci-n_industrial2024/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding:0.4rem 0.8rem; font-size:0.75rem;">Ver Detalle</a>
+                <a href="https://paypal.me/spilimcurso" target="_blank" rel="noopener noreferrer" class="btn btn-gold" style="padding:0.4rem 0.8rem; font-size:0.75rem;">Aporte / Donación ➔</a>
+              </div>
+            </div>
+          </div>
 
-        <!-- Videos Section -->
-        <div class="videos-grid">
-          <div class="video-container">
-            <iframe src="https://www.youtube.com/embed/M4DHMR3ERII" title="Video del Curso Ross-Heideck" allowfullscreen></iframe>
+          <!-- Libro 5 -->
+          <div class="catalog-card">
+            <span class="item-badge">E-book (Español)</span>
+            <div>
+              <h3>El e-book de un avalúo inmobiliario</h3>
+              <p>Guía práctica y metodológica para la estandarización de informes y criterios de mercado inmobiliario.</p>
+            </div>
+            <div class="card-footer">
+              <div class="card-actions">
+                <a href="https://mundo-valor.github.io/ebook_avaluoinmobiliario2022/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding:0.4rem 0.8rem; font-size:0.75rem;">Ver Detalle</a>
+                <a href="https://paypal.me/spilimcurso" target="_blank" rel="noopener noreferrer" class="btn btn-gold" style="padding:0.4rem 0.8rem; font-size:0.75rem;">Aporte / Donación ➔</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Libro 6 -->
+          <div class="catalog-card">
+            <span class="item-badge">E-book (English)</span>
+            <div>
+              <h3>The e-book of the Real Estate Appraisal</h3>
+              <p>Official English version covering international standards, valuation approaches and reporting.</p>
+            </div>
+            <div class="card-footer">
+              <div class="card-actions">
+                <a href="https://mundo-valor.github.io/ebook-englishversion/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding:0.4rem 0.8rem; font-size:0.75rem;">Ver Detalle</a>
+                <a href="https://paypal.me/spilimcurso" target="_blank" rel="noopener noreferrer" class="btn btn-gold" style="padding:0.4rem 0.8rem; font-size:0.75rem;">Aporte / Donación ➔</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Libro 7 -->
+          <div class="catalog-card">
+            <span class="item-badge">E-book (Português)</span>
+            <div>
+              <h3>O e-book de uma avaliação imobiliária</h3>
+              <p>Versão oficial em português com foco nas normas ABNT y modelagem estatística aplicada.</p>
+            </div>
+            <div class="card-footer">
+              <div class="card-actions">
+                <a href="https://mundo-valor.github.io/ebook-versionportugues/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding:0.4rem 0.8rem; font-size:0.75rem;">Ver Detalle</a>
+                <a href="https://paypal.me/spilimcurso" target="_blank" rel="noopener noreferrer" class="btn btn-gold" style="padding:0.4rem 0.8rem; font-size:0.75rem;">Aporte / Donación ➔</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Libro 8 -->
+          <div class="catalog-card">
+            <span class="item-badge">E-book (Italiano)</span>
+            <div>
+              <h3>L’ebook di una valutazione immobiliare</h3>
+              <p>Edizione in lingua italiana focalizzata sui criteri di stima e standard internazionali di valutazione.</p>
+            </div>
+            <div class="card-footer">
+              <div class="card-actions">
+                <a href="https://mundo-valor.github.io/ebook-versionitaliano/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding:0.4rem 0.8rem; font-size:0.75rem;">Ver Detalle</a>
+                <a href="https://paypal.me/spilimcurso" target="_blank" rel="noopener noreferrer" class="btn btn-gold" style="padding:0.4rem 0.8rem; font-size:0.75rem;">Aporte / Donación ➔</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Libro 9 -->
+          <div class="catalog-card">
+            <span class="item-badge">E-book / Tratado</span>
+            <div>
+              <h3>El método contributivo en los avalúos inmobiliarios</h3>
+              <p>Desarrollo exhaustivo del Modelo Mandelblatt-Camacaro y simulación de Monte Carlo en ausencia de datos.</p>
+            </div>
+            <div class="card-footer">
+              <div class="card-actions">
+                <a href="https://mundo-valor.github.io/metodocontributivo-modulomandelblatt_camacaro/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding:0.4rem 0.8rem; font-size:0.75rem;">Ver Detalle</a>
+                <a href="https://paypal.me/spilimcurso" target="_blank" rel="noopener noreferrer" class="btn btn-gold" style="padding:0.4rem 0.8rem; font-size:0.75rem;">Aporte / Donación ➔</a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Multi-Document Online Reader Viewport -->
-    <section class="reader-section" id="lector">
+    <!-- Cursos Online Section -->
+    <section class="section-block" id="cursos">
       <div class="container">
-        <div class="reader-frame" id="reader-box">
-          <!-- Loader -->
-          <div class="reader-loader" id="loader">
-            <div class="spinner"></div>
-            <p style="color:var(--accent-gold); font-family:var(--font-title); font-size:1.1rem;">Cargando documento de lectura...</p>
-          </div>
+        <div class="section-head">
+          <h2>Cursos Online Especializados</h2>
+          <p>Capacitación académica con opciones síncrona / asíncrona y certificación oficial EVMC.</p>
+        </div>
 
-          <!-- Toolbar -->
-          <div class="reader-toolbar">
-            <div class="reader-doc-switch">
-              <button class="btn btn-gold" id="doc-btn-1" onclick="switchDocument('1. Contenido del curso online.pdf', 1)">1. Contenido del Curso</button>
-              <button class="btn btn-outline" id="doc-btn-2" onclick="switchDocument('2. Material curso 22082026.pdf', 2)">2. Material de Apoyo</button>
+        <div class="catalog-grid">
+          <!-- Curso 1 -->
+          <div class="catalog-card" style="border-color: rgba(5, 150, 105, 0.4);">
+            <span class="item-badge" style="background: rgba(5, 150, 105, 0.15); color: #34d399; border-color: rgba(5, 150, 105, 0.3);">Curso Online</span>
+            <div>
+              <h3>Valuación de Máquinas y Equipos Industriales (Criterio Heideck)</h3>
+              <p>Módulo histórico, análisis de tablas originales y aplicación del procedimiento de Erich Heideck con IA generativa.</p>
             </div>
-            <div class="reader-controls-group">
-              <button class="btn btn-outline" style="padding:0.4rem 0.8rem;" onclick="toggleViewMode()" id="view-mode-btn">📄 Página Simple</button>
-              <button class="btn btn-outline" style="padding:0.4rem 0.8rem;" onclick="zoom(-0.15)">🔍 -</button>
-              <span class="zoom-label" id="zoom-text">140%</span>
-              <button class="btn btn-outline" style="padding:0.4rem 0.8rem;" onclick="zoom(0.15)">🔍 +</button>
-              <button class="btn btn-outline" style="padding:0.4rem 0.8rem;" onclick="toggleFullscreen()">⛶ Pantalla Completa</button>
-            </div>
-          </div>
-
-          <!-- Stage with Large Format Scroll -->
-          <div class="reader-stage" id="reader-viewport">
-            <div class="book-spread" id="spread-box">
-              <canvas id="canvas-l" class="page-canvas"></canvas>
-              <canvas id="canvas-r" style="display:none;" class="page-canvas"></canvas>
+            <div class="card-footer">
+              <div class="card-actions">
+                <a href="https://mundo-valor.github.io/cursoonline-maquinasheideck/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding:0.4rem 0.8rem; font-size:0.75rem;">Ver Curso</a>
+                <a href="https://paypal.me/spilimcurso" target="_blank" rel="noopener noreferrer" class="btn btn-gold" style="padding:0.4rem 0.8rem; font-size:0.75rem;">Aporte / Donación ➔</a>
+              </div>
             </div>
           </div>
 
-          <!-- Footer Toolbar -->
-          <div class="reader-footer">
-            <button class="btn btn-outline" id="prev-btn" onclick="prevSpread()">◀ Anterior</button>
-            <div style="color:var(--accent-gold); font-weight:700; font-size:0.95rem;" id="page-num-indicator">
-              Cargando páginas...
+          <!-- Curso 2 -->
+          <div class="catalog-card" style="border-color: rgba(5, 150, 105, 0.4);">
+            <span class="item-badge" style="background: rgba(5, 150, 105, 0.15); color: #34d399; border-color: rgba(5, 150, 105, 0.3);">Curso Online</span>
+            <div>
+              <h3>Valuación de Máquinas y Equipos Industriales (Criterio Heideck 0941)</h3>
+              <p>Interpretación avanzada integrando el nuevo marco normativo del Anexo Técnico del IGAC (Resolución 0941.2026).</p>
             </div>
-            <button class="btn btn-gold" id="next-btn" onclick="nextSpread()">Siguiente ▶</button>
+            <div class="card-footer">
+              <div class="card-actions">
+                <a href="https://mundo-valor.github.io/cursoonline_Heideck0941/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding:0.4rem 0.8rem; font-size:0.75rem;">Ver Curso</a>
+                <a href="https://paypal.me/spilimcurso" target="_blank" rel="noopener noreferrer" class="btn btn-gold" style="padding:0.4rem 0.8rem; font-size:0.75rem;">Aporte / Donación ➔</a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
+
   </main>
 
   <!-- Footer -->
   <footer>
     <div class="container">
-      <p><strong>El Criterio de Ross-Heideck</strong> — © 2026 Miguel Camacaro Pérez</p>
-      <p style="margin-top:0.4rem; opacity:0.7;">Publicación técnica y académica de <strong>Miguel Camacaro Ediciones</strong> • Todos los derechos reservados.</p>
+      <p><strong>Escuela de Valuación Miguel Camacaro [EVMC]</strong> — © 2026 Miguel Camacaro Ediciones & Mundo Valor</p>
+      <p style="margin-top:0.4rem; opacity:0.7;">Portal informativo y académico unificado para la difusión de la ciencia de la tasación.</p>
     </div>
   </footer>
 
-  <script>
-    // PDF.js Configuration
-    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
-
-    let currentPdfUrl = '1. Contenido del curso online.pdf';
-    let pdfDoc = null;
-    let currentPage = 1;
-    let currentScale = 1.40;
-    let isSinglePageMode = true; // Inicia siempre en versión página simple y de forma independiente
-    let isRendering = false;
-
-    function loadDocument(url) {
-      document.getElementById('loader').style.display = 'flex';
-      document.getElementById('loader').style.opacity = '1';
-      pdfjsLib.getDocument(url).promise.then(pdf => {
-        pdfDoc = pdf;
-        currentPage = 1;
-        document.getElementById('loader').style.opacity = '0';
-        setTimeout(() => document.getElementById('loader').style.display = 'none', 300);
-        renderSpread(currentPage);
-      }).catch(err => {
-        console.error("Error al cargar el archivo PDF:", err);
-        document.getElementById('loader').innerHTML = `
-          <p style="color:#ef4444; font-weight:700;">Imposible cargar el documento.</p>
-          <p style="color:#94a3b8; font-size:0.85rem; margin-top:0.4rem;">Verifique que el archivo <strong>${url}</strong> esté en el directorio principal.</p>
-        `;
-      });
-    }
-
-    function switchDocument(url, docIndex) {
-      currentPdfUrl = url;
-      for(let i=1; i<=2; i++) {
-        const btn = document.getElementById(`doc-btn-${i}`);
-        if(i === docIndex) {
-          btn.className = 'btn btn-gold';
-        } else {
-          btn.className = 'btn btn-outline';
-        }
-      }
-      loadDocument(url);
-    }
-
-    // Initial Load
-    loadDocument(currentPdfUrl);
-
-    // Render Individual Page with HD Support
-    function renderPage(pageNum, canvasId) {
-      return new Promise((resolve) => {
-        const canvas = document.getElementById(canvasId);
-        const ctx = canvas.getContext('2d');
-
-        if (!pdfDoc || pageNum > pdfDoc.numPages || pageNum < 1) {
-          ctx.clearRect(0, 0, canvas.width, canvas.height);
-          canvas.style.display = 'none';
-          resolve();
-          return;
-        }
-
-        canvas.style.display = 'block';
-        pdfDoc.getPage(pageNum).then(page => {
-          const viewport = page.getViewport({ scale: currentScale });
-          
-          const outputScale = window.devicePixelRatio || 1;
-          canvas.width = Math.floor(viewport.width * outputScale);
-          canvas.height = Math.floor(viewport.height * outputScale);
-          canvas.style.width = Math.floor(viewport.width) + "px";
-          canvas.style.height = Math.floor(viewport.height) + "px";
-
-          const transform = outputScale !== 1 ? [outputScale, 0, 0, outputScale, 0, 0] : null;
-
-          const renderContext = {
-            canvasContext: ctx,
-            transform: transform,
-            viewport: viewport
-          };
-          page.render(renderContext).promise.then(() => resolve());
-        });
-      });
-    }
-
-    // Render Spread or Single Page Independently
-    function renderSpread(pageNumber) {
-      if (!pdfDoc || isRendering) return;
-      isRendering = true;
-      const isMobile = window.innerWidth <= 900 || isSinglePageMode;
-      const spreadBox = document.getElementById('spread-box');
-
-      if (isMobile) {
-        spreadBox.classList.remove('double-mode');
-      } else {
-        spreadBox.classList.add('double-mode');
-      }
-
-      const p1 = renderPage(pageNumber, 'canvas-l');
-      const p2 = !isMobile ? renderPage(pageNumber + 1, 'canvas-r') : Promise.resolve();
-
-      Promise.all([p1, p2]).then(() => {
-        isRendering = false;
-        const rightPage = isMobile ? pageNumber : Math.min(pageNumber + 1, pdfDoc.numPages);
-
-        document.getElementById('page-num-indicator').innerText = isMobile 
-          ? `Pág. PDF: ${pageNumber} / ${pdfDoc.numPages}` 
-          : `Págs. PDF: ${pageNumber} – ${rightPage} / ${pdfDoc.numPages}`;
-
-        document.getElementById('prev-btn').disabled = pageNumber <= 1;
-        document.getElementById('next-btn').disabled = isMobile 
-          ? pageNumber >= pdfDoc.numPages 
-          : pageNumber + 1 >= pdfDoc.numPages;
-
-        document.getElementById('zoom-text').innerText = Math.round(currentScale * 100) + '%';
-      });
-    }
-
-    function nextSpread() {
-      if (!pdfDoc || isRendering) return;
-      const step = (window.innerWidth <= 900 || isSinglePageMode) ? 1 : 2;
-      if (currentPage + step <= pdfDoc.numPages) {
-        currentPage += step;
-        renderSpread(currentPage);
-      }
-    }
-
-    function prevSpread() {
-      if (!pdfDoc || isRendering) return;
-      const step = (window.innerWidth <= 900 || isSinglePageMode) ? 1 : 2;
-      if (currentPage - step >= 1) {
-        currentPage -= step;
-        renderSpread(currentPage);
-      } else if (currentPage > 1) {
-        currentPage = 1;
-        renderSpread(currentPage);
-      }
-    }
-
-    function zoom(delta) {
-      currentScale = Math.min(Math.max(currentScale + delta, 0.8), 3.0);
-      renderSpread(currentPage);
-    }
-
-    function toggleViewMode() {
-      isSinglePageMode = !isSinglePageMode;
-      document.getElementById('view-mode-btn').innerText = isSinglePageMode ? '📖 Página Doble' : '📄 Página Simple';
-      renderSpread(currentPage);
-    }
-
-    function toggleFullscreen() {
-      const elem = document.getElementById('reader-box');
-      if (!document.fullscreenElement) {
-        elem.requestFullscreen().catch(err => alert(`Error en pantalla completa: ${err.message}`));
-      } else {
-        document.exitFullscreen();
-      }
-    }
-
-    // Keyboard Shortcuts
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'ArrowRight') nextSpread();
-      if (e.key === 'ArrowLeft') prevSpread();
-      if (e.key === '+' || e.key === '=') zoom(0.15);
-      if (e.key === '-' || e.key === '_') zoom(-0.15);
-    });
-
-    window.addEventListener('resize', () => {
-      renderSpread(currentPage);
-    });
-  </script>
 </body>
 </html>
