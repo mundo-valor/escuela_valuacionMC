@@ -388,7 +388,7 @@
     /* Catalog Grid */
     .catalog-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
       gap: 1.8rem;
     }
 
@@ -423,6 +423,7 @@
       padding: 0.25rem 0.7rem;
       border-radius: 999px;
       border: 1px solid rgba(153, 27, 27, 0.4);
+      z-index: 2;
     }
 
     .catalog-card h3 {
@@ -431,6 +432,7 @@
       margin-bottom: 0.8rem;
       line-height: 1.3;
       padding-right: 4.5rem;
+      font-family: var(--font-title);
     }
 
     .catalog-card p {
@@ -439,6 +441,28 @@
       margin-bottom: 1.5rem;
       line-height: 1.5;
       text-align: justify;
+    }
+
+    .card-thumbnail {
+      width: 100%;
+      height: 320px;
+      background: #1e293b;
+      border-radius: 10px;
+      margin-bottom: 1.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(255,255,255,0.08);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .card-thumbnail img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+      background: #0b1329;
     }
 
     .card-footer {
@@ -452,6 +476,80 @@
     .card-actions {
       display: flex;
       gap: 0.5rem;
+      width: 100%;
+      justify-content: center;
+    }
+
+    /* Modal / Document Viewer Overlay */
+    .viewer-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(7, 12, 24, 0.92);
+      backdrop-filter: blur(10px);
+      z-index: 100;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .viewer-content {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: 20px;
+      width: 100%;
+      max-width: 1000px;
+      height: 85vh;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.9);
+      overflow: hidden;
+    }
+
+    .viewer-header {
+      padding: 1rem 1.5rem;
+      background: #1e293b;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border-card);
+    }
+
+    .viewer-title {
+      font-family: var(--font-title);
+      font-size: 1.1rem;
+      color: #fff;
+    }
+
+    .viewer-close {
+      background: rgba(255,255,255,0.1);
+      border: none;
+      color: #fff;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      font-weight: bold;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+    }
+
+    .viewer-close:hover {
+      background: var(--accent-red);
+    }
+
+    .viewer-body {
+      flex: 1;
+      width: 100%;
+      background: #0f172a;
+    }
+
+    .viewer-body iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
     }
 
     footer {
@@ -486,6 +584,7 @@
       <!-- Centro: Pestañas de Navegación y Botón de Aportar -->
       <nav class="nav-center">
         <a href="#libros">Libros</a>
+        <a href="#aprendizaje">Aprendizaje Guiado</a>
         <a href="#cursos">Cursos Online</a>
         <a href="#congresos">Congresos</a>
         <a href="https://paypal.me/spilimcurso" target="_blank" rel="noopener noreferrer" class="btn btn-donate">☕ Aportar / Donar</a>
@@ -566,17 +665,19 @@
 
         <div class="catalog-grid">
           
-          <!-- Libro 1 (Inicio) -->
+          <!-- Libro 1 -->
           <div class="catalog-card">
             <span class="item-badge">E-book</span>
+            <div class="card-thumbnail">
+              <img src="El Fabuloso.jpg" alt="El fabuloso avalúo de un castillo medieval" onerror="this.onerror=null; this.src='LOGO EVMC.jpg';">
+            </div>
             <div>
               <h3>El fabuloso avalúo de un castillo medieval</h3>
               <p>Metodología didáctica y singular aplicada a la valoración de bienes históricos y patrimoniales complejos.</p>
             </div>
             <div class="card-footer">
-              <div class="card-actions">
-                <a href="https://mundo-valor.github.io/valuacioncastillo-medieval/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding:0.4rem 0.8rem; font-size:0.75rem;">Ver Detalle</a>
-                <a href="https://paypal.me/spilimcurso" target="_blank" rel="noopener noreferrer" class="btn btn-red" style="padding:0.4rem 0.8rem; font-size:0.75rem;">Aporte / Donación ➔</a>
+              <div class="card-actions" style="width:100%;">
+                <a href="https://mundo-valor.github.io/valuacioncastillo-medieval/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding:0.5rem 1rem; font-size:0.8rem; width:100%; justify-content:center;">Ver Detalle</a>
               </div>
             </div>
           </div>
@@ -584,14 +685,16 @@
           <!-- Libro 2 -->
           <div class="catalog-card">
             <span class="item-badge">E-book</span>
+            <div class="card-thumbnail">
+              <img src="Casos y Cosas.jpg" alt="Casos y cosas de la valuación" onerror="this.onerror=null; this.src='LOGO EVMC.jpg';">
+            </div>
             <div>
               <h3>Casos y cosas de la valuación</h3>
               <p>Ensayos, anécdotas y resolución de casos prácticos en el ejercicio profesional de la ingeniería de tasación.</p>
             </div>
             <div class="card-footer">
-              <div class="card-actions">
-                <a href="https://mundo-valor.github.io/casoscosas-valuacion/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding:0.4rem 0.8rem; font-size:0.75rem;">Ver Detalle</a>
-                <a href="https://paypal.me/spilimcurso" target="_blank" rel="noopener noreferrer" class="btn btn-red" style="padding:0.4rem 0.8rem; font-size:0.75rem;">Aporte / Donación ➔</a>
+              <div class="card-actions" style="width:100%;">
+                <a href="https://mundo-valor.github.io/casoscosas-valuacion/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding:0.5rem 1rem; font-size:0.8rem; width:100%; justify-content:center;">Ver Detalle</a>
               </div>
             </div>
           </div>
@@ -599,14 +702,19 @@
           <!-- Libro 3 -->
           <div class="catalog-card">
             <span class="item-badge">E-book</span>
+            <div class="card-thumbnail">
+              <div class="placeholder-cover" style="width:100%; height:100%; background:linear-gradient(135deg, #1e293b, #0f172a); display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:1rem;">
+                <span style="font-size:1.8rem;">📖</span>
+                <strong style="color:#fff; font-size:0.9rem; font-family:var(--font-title);">Traducción Erich Heideck</strong>
+              </div>
+            </div>
             <div>
               <h3>Valuación de terrenos industriales, fábricas, edificios comerciales y residenciales</h3>
               <p>Traducción y adaptación del referente clásico de Erich Heideck para la tasación de activos complejos.</p>
             </div>
             <div class="card-footer">
-              <div class="card-actions">
-                <a href="https://mundo-valor.github.io/libroheideck-traduccion2025/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding:0.4rem 0.8rem; font-size:0.75rem;">Ver Detalle</a>
-                <a href="https://paypal.me/spilimcurso" target="_blank" rel="noopener noreferrer" class="btn btn-red" style="padding:0.4rem 0.8rem; font-size:0.75rem;">Aporte / Donación ➔</a>
+              <div class="card-actions" style="width:100%;">
+                <a href="https://mundo-valor.github.io/libroheideck-traduccion2025/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding:0.5rem 1rem; font-size:0.8rem; width:100%; justify-content:center;">Ver Detalle</a>
               </div>
             </div>
           </div>
@@ -614,14 +722,16 @@
           <!-- Libro 4 -->
           <div class="catalog-card">
             <span class="item-badge">E-book</span>
+            <div class="card-thumbnail">
+              <img src="Una valuacion.png" alt="Una valuación industrial" onerror="this.onerror=null; this.src='LOGO EVMC.jpg';">
+            </div>
             <div>
               <h3>Una valuación industrial</h3>
               <p>Estudio de caso aplicado al análisis y desglose técnico de componentes en instalaciones fabriles.</p>
             </div>
             <div class="card-footer">
-              <div class="card-actions">
-                <a href="https://mundo-valor.github.io/unavaluaci-n_industrial2024/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding:0.4rem 0.8rem; font-size:0.75rem;">Ver Detalle</a>
-                <a href="https://paypal.me/spilimcurso" target="_blank" rel="noopener noreferrer" class="btn btn-red" style="padding:0.4rem 0.8rem; font-size:0.75rem;">Aporte / Donación ➔</a>
+              <div class="card-actions" style="width:100%;">
+                <a href="https://mundo-valor.github.io/unavaluaci-n_industrial2024/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding:0.5rem 1rem; font-size:0.8rem; width:100%; justify-content:center;">Ver Detalle</a>
               </div>
             </div>
           </div>
@@ -629,14 +739,16 @@
           <!-- Libro 5 -->
           <div class="catalog-card">
             <span class="item-badge">E-book</span>
+            <div class="card-thumbnail">
+              <img src="ebook español.png" alt="El e-book de un avalúo inmobiliario" onerror="this.onerror=null; this.src='LOGO EVMC.jpg';">
+            </div>
             <div>
               <h3>El e-book de un avalúo inmobiliario</h3>
               <p>Guía práctica y metodológica para la estandarización de informes y criterios de mercado inmobiliario.</p>
             </div>
             <div class="card-footer">
-              <div class="card-actions">
-                <a href="https://mundo-valor.github.io/ebook_avaluoinmobiliario2022/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding:0.4rem 0.8rem; font-size:0.75rem;">Ver Detalle</a>
-                <a href="https://paypal.me/spilimcurso" target="_blank" rel="noopener noreferrer" class="btn btn-red" style="padding:0.4rem 0.8rem; font-size:0.75rem;">Aporte / Donación ➔</a>
+              <div class="card-actions" style="width:100%;">
+                <a href="https://mundo-valor.github.io/ebook_avaluoinmobiliario2022/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding:0.5rem 1rem; font-size:0.8rem; width:100%; justify-content:center;">Ver Detalle</a>
               </div>
             </div>
           </div>
@@ -644,14 +756,16 @@
           <!-- Libro 6 -->
           <div class="catalog-card">
             <span class="item-badge">E-book</span>
+            <div class="card-thumbnail">
+              <img src="ebook ingles.png" alt="The e-book of the Real Estate Appraisal" onerror="this.onerror=null; this.src='LOGO EVMC.jpg';">
+            </div>
             <div>
               <h3>The e-book of the Real Estate Appraisal</h3>
               <p>Official English version covering international standards, valuation approaches and reporting.</p>
             </div>
             <div class="card-footer">
-              <div class="card-actions">
-                <a href="https://mundo-valor.github.io/ebook-englishversion/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding:0.4rem 0.8rem; font-size:0.75rem;">Ver Detalle</a>
-                <a href="https://paypal.me/spilimcurso" target="_blank" rel="noopener noreferrer" class="btn btn-red" style="padding:0.4rem 0.8rem; font-size:0.75rem;">Aporte / Donación ➔</a>
+              <div class="card-actions" style="width:100%;">
+                <a href="https://mundo-valor.github.io/ebook-englishversion/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding:0.5rem 1rem; font-size:0.8rem; width:100%; justify-content:center;">Ver Detalle</a>
               </div>
             </div>
           </div>
@@ -659,14 +773,16 @@
           <!-- Libro 7 -->
           <div class="catalog-card">
             <span class="item-badge">E-book</span>
+            <div class="card-thumbnail">
+              <img src="ebook portugues.png" alt="O e-book de uma avaliação imobiliária" onerror="this.onerror=null; this.src='LOGO EVMC.jpg';">
+            </div>
             <div>
               <h3>O e-book de uma avaliação imobiliária</h3>
               <p>Versão oficial em português com foco nas normas ABNT y modelagem estatística aplicada.</p>
             </div>
             <div class="card-footer">
-              <div class="card-actions">
-                <a href="https://mundo-valor.github.io/ebook-versionportugues/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding:0.4rem 0.8rem; font-size:0.75rem;">Ver Detalle</a>
-                <a href="https://paypal.me/spilimcurso" target="_blank" rel="noopener noreferrer" class="btn btn-red" style="padding:0.4rem 0.8rem; font-size:0.75rem;">Aporte / Donación ➔</a>
+              <div class="card-actions" style="width:100%;">
+                <a href="https://mundo-valor.github.io/ebook-versionportugues/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding:0.5rem 1rem; font-size:0.8rem; width:100%; justify-content:center;">Ver Detalle</a>
               </div>
             </div>
           </div>
@@ -674,14 +790,16 @@
           <!-- Libro 8 -->
           <div class="catalog-card">
             <span class="item-badge">E-book</span>
+            <div class="card-thumbnail">
+              <img src="ebook italiano.png" alt="L’ebook di una valutazione immobiliare" onerror="this.onerror=null; this.src='LOGO EVMC.jpg';">
+            </div>
             <div>
               <h3>L’ebook di una valutazione immobiliare</h3>
               <p>Edizione in lingua italiana focalizzata sui criteri di stima e standard internazionali di valutazione.</p>
             </div>
             <div class="card-footer">
-              <div class="card-actions">
-                <a href="https://mundo-valor.github.io/ebook-versionitaliano/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding:0.4rem 0.8rem; font-size:0.75rem;">Ver Detalle</a>
-                <a href="https://paypal.me/spilimcurso" target="_blank" rel="noopener noreferrer" class="btn btn-red" style="padding:0.4rem 0.8rem; font-size:0.75rem;">Aporte / Donación ➔</a>
+              <div class="card-actions" style="width:100%;">
+                <a href="https://mundo-valor.github.io/ebook-versionitaliano/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding:0.5rem 1rem; font-size:0.8rem; width:100%; justify-content:center;">Ver Detalle</a>
               </div>
             </div>
           </div>
@@ -689,14 +807,16 @@
           <!-- Libro 9 -->
           <div class="catalog-card">
             <span class="item-badge">E-book</span>
+            <div class="card-thumbnail">
+              <img src="Contributivo.png" alt="El método contributivo en los avalúos inmobiliarios" onerror="this.onerror=null; this.src='LOGO EVMC.jpg';">
+            </div>
             <div>
               <h3>El método contributivo en los avalúos inmobiliarios</h3>
               <p>Desarrollo exhaustivo del Modelo Mandelblatt-Camacaro y simulación de Monte Carlo en ausencia de datos.</p>
             </div>
             <div class="card-footer">
-              <div class="card-actions">
-                <a href="https://mundo-valor.github.io/metodocontributivo-modulomandelblatt_camacaro/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding:0.4rem 0.8rem; font-size:0.75rem;">Ver Detalle</a>
-                <a href="https://paypal.me/spilimcurso" target="_blank" rel="noopener noreferrer" class="btn btn-red" style="padding:0.4rem 0.8rem; font-size:0.75rem;">Aporte / Donación ➔</a>
+              <div class="card-actions" style="width:100%;">
+                <a href="https://mundo-valor.github.io/metodocontributivo-modulomandelblatt_camacaro/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding:0.5rem 1rem; font-size:0.8rem; width:100%; justify-content:center;">Ver Detalle</a>
               </div>
             </div>
           </div>
@@ -704,18 +824,34 @@
           <!-- Libro 10 -->
           <div class="catalog-card">
             <span class="item-badge">E-book</span>
+            <div class="card-thumbnail">
+              <img src="Cuaderno tasacion.png" alt="Un Cuaderno de Tasación" onerror="this.onerror=null; this.src='LOGO EVMC.jpg';">
+            </div>
             <div>
               <h3>Un Cuaderno de Tasación</h3>
               <p>Notas técnicas, apuntes metodológicos y ejercicios prácticos esenciales para la labor diaria del tasador profesional.</p>
             </div>
             <div class="card-footer">
-              <div class="card-actions">
-                <a href="https://mundo-valor.github.io/cuaderno_tasacion/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding:0.4rem 0.8rem; font-size:0.75rem;">Ver Detalle</a>
-                <a href="https://paypal.me/spilimcurso" target="_blank" rel="noopener noreferrer" class="btn btn-red" style="padding:0.4rem 0.8rem; font-size:0.75rem;">Aporte / Donación ➔</a>
+              <div class="card-actions" style="width:100%;">
+                <a href="https://mundo-valor.github.io/cuaderno_tasacion/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding:0.5rem 1rem; font-size:0.8rem; width:100%; justify-content:center;">Ver Detalle</a>
               </div>
             </div>
           </div>
 
+        </div>
+      </div>
+    </section>
+
+    <!-- Aprendizaje Guiado Section -->
+    <section class="section-block" id="aprendizaje">
+      <div class="container">
+        <div class="section-head">
+          <h2>Cuadernos de Aprendizaje Guiado</h2>
+          <p>Colección oficial de portadas y volúmenes técnicos en Inteligencia Artificial Generativa y Valuación.</p>
+        </div>
+
+        <div class="catalog-grid" id="catalogGrid">
+          <!-- Generado dinámicamente -->
         </div>
       </div>
     </section>
@@ -732,14 +868,16 @@
           <!-- Curso 1 -->
           <div class="catalog-card" style="border-color: rgba(153, 27, 27, 0.4);">
             <span class="item-badge" style="background: rgba(153, 27, 27, 0.2); color: #fca5a5; border-color: rgba(153, 27, 27, 0.4);">Curso Online</span>
+            <div class="card-thumbnail">
+              <img src="2GMaquinaria_Heideck.2026.jpg" alt="Valuación de Máquinas y Equipos Industriales (Criterio Heideck)" onerror="this.onerror=null; this.src='LOGO EVMC.jpg';">
+            </div>
             <div>
               <h3>Valuación de Máquinas y Equipos Industriales (Criterio Heideck)</h3>
               <p>Módulo histórico, análisis de tablas originales y aplicación del procedimiento de Erich Heideck con IA generativa.</p>
             </div>
             <div class="card-footer">
-              <div class="card-actions">
-                <a href="https://mundo-valor.github.io/cursoonline-maquinasheideck/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding:0.4rem 0.8rem; font-size:0.75rem;">Ver Curso</a>
-                <a href="https://paypal.me/spilimcurso" target="_blank" rel="noopener noreferrer" class="btn btn-red" style="padding:0.4rem 0.8rem; font-size:0.75rem;">Aporte / Donación ➔</a>
+              <div class="card-actions" style="width:100%;">
+                <a href="https://mundo-valor.github.io/cursoonline-maquinasheideck/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding:0.5rem 1rem; font-size:0.8rem; width:100%; justify-content:center;">Ver Curso</a>
               </div>
             </div>
           </div>
@@ -747,14 +885,16 @@
           <!-- Curso 2 -->
           <div class="catalog-card" style="border-color: rgba(153, 27, 27, 0.4);">
             <span class="item-badge" style="background: rgba(153, 27, 27, 0.2); color: #fca5a5; border-color: rgba(153, 27, 27, 0.4);">Curso Online</span>
+            <div class="card-thumbnail">
+              <img src="28082026 Curso Online.jpg" alt="Valuación de Máquinas y Equipos Industriales (Criterio Heideck 0941)" onerror="this.onerror=null; this.src='LOGO EVMC.jpg';">
+            </div>
             <div>
               <h3>Valuación de Máquinas y Equipos Industriales (Criterio Heideck 0941)</h3>
               <p>Interpretación avanzada integrando el nuevo marco normativo del Anexo Técnico del IGAC (Resolución 0941.2026).</p>
             </div>
             <div class="card-footer">
-              <div class="card-actions">
-                <a href="https://mundo-valor.github.io/cursoonline_Heideck0941/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding:0.4rem 0.8rem; font-size:0.75rem;">Ver Curso</a>
-                <a href="https://paypal.me/spilimcurso" target="_blank" rel="noopener noreferrer" class="btn btn-red" style="padding:0.4rem 0.8rem; font-size:0.75rem;">Aporte / Donación ➔</a>
+              <div class="card-actions" style="width:100%;">
+                <a href="https://mundo-valor.github.io/cursoonline_Heideck0941/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding:0.5rem 1rem; font-size:0.8rem; width:100%; justify-content:center;">Ver Curso</a>
               </div>
             </div>
           </div>
@@ -774,13 +914,16 @@
           <!-- Congreso 1 -->
           <div class="catalog-card">
             <span class="item-badge">Congreso 2022</span>
+            <div class="card-thumbnail">
+              <img src="MCamacaroEMockLares 2022.jpg" alt="LARES 2022" onerror="this.onerror=null; this.src='LOGO EVMC.jpg';">
+            </div>
             <div>
               <h3>Ponencia & Artículo LARES 2022</h3>
               <p>Participación y divulgación de investigación en el congreso de la Latin American Real Estate Society.</p>
             </div>
             <div class="card-footer">
-              <div class="card-actions">
-                <a href="https://mundo-valor.github.io/Conferencia_Lares2022/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding:0.4rem 0.8rem; font-size:0.75rem;">Ver Artículo / Ponencia</a>
+              <div class="card-actions" style="width:100%;">
+                <a href="https://mundo-valor.github.io/Conferencia_Lares2022/" style="padding:0.5rem 1rem; font-size:0.8rem; width:100%; justify-content:center;" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Ver Artículo / Ponencia</a>
               </div>
             </div>
           </div>
@@ -788,13 +931,16 @@
           <!-- Congreso 2 -->
           <div class="catalog-card">
             <span class="item-badge">Congreso 2022</span>
+            <div class="card-thumbnail">
+              <img src="ID10ISAHP2022.jpg" alt="ISAHP 2022" onerror="this.onerror=null; this.src='LOGO EVMC.jpg';">
+            </div>
             <div>
               <h3>Ponencia & Artículo ISAHP 2022</h3>
               <p>Investigación presentada en el International Symposium on the Analytic Hierarchy Process.</p>
             </div>
             <div class="card-footer">
-              <div class="card-actions">
-                <a href="https://mundo-valor.github.io/conference_ISAHP2022/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding:0.4rem 0.8rem; font-size:0.75rem;">Ver Artículo / Ponencia</a>
+              <div class="card-actions" style="width:100%;">
+                <a href="https://mundo-valor.github.io/conference_ISAHP2022/" style="padding:0.5rem 1rem; font-size:0.8rem; width:100%; justify-content:center;" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Ver Artículo / Ponencia</a>
               </div>
             </div>
           </div>
@@ -802,13 +948,16 @@
           <!-- Congreso 3 -->
           <div class="catalog-card">
             <span class="item-badge">Congreso 2024</span>
+            <div class="card-thumbnail">
+              <img src="MCamacaroLares2024.jpg" alt="LARES 2024" onerror="this.onerror=null; this.src='LOGO EVMC.jpg';">
+            </div>
             <div>
               <h3>Ponencia & Artículo LARES 2024</h3>
               <p>Contribución científica y exposición de modelos aplicados en el encuentro anual de LARES.</p>
             </div>
             <div class="card-footer">
-              <div class="card-actions">
-                <a href="https://mundo-valor.github.io/conferencia_LARES2024/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding:0.4rem 0.8rem; font-size:0.75rem;">Ver Artículo / Ponencia</a>
+              <div class="card-actions" style="width:100%;">
+                <a href="https://mundo-valor.github.io/conferencia_LARES2024/" style="padding:0.5rem 1rem; font-size:0.8rem; width:100%; justify-content:center;" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Ver Artículo / Ponencia</a>
               </div>
             </div>
           </div>
@@ -816,13 +965,16 @@
           <!-- Congreso 4 -->
           <div class="catalog-card">
             <span class="item-badge">Congreso 2024</span>
+            <div class="card-thumbnail">
+              <img src="AvataresEnglishMCamacaroISAHP2024.jpg" alt="ISAHP 2024" onerror="this.onerror=null; this.src='LOGO EVMC.jpg';">
+            </div>
             <div>
               <h3>Ponencia & Artículo ISAHP 2024</h3>
               <p>Estudio especializado expuesto en el foro internacional de toma de decisiones multicriterio.</p>
             </div>
             <div class="card-footer">
-              <div class="card-actions">
-                <a href="https://mundo-valor.github.io/conference_ISAHP2024/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding:0.4rem 0.8rem; font-size:0.75rem;">Ver Artículo / Ponencia</a>
+              <div class="card-actions" style="width:100%;">
+                <a href="https://mundo-valor.github.io/conference_ISAHP2024/" style="padding:0.5rem 1rem; font-size:0.8rem; width:100%; justify-content:center;" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Ver Artículo / Ponencia</a>
               </div>
             </div>
           </div>
@@ -840,5 +992,84 @@
     </div>
   </footer>
 
+  <!-- PDF Viewer Modal -->
+  <div class="viewer-modal" id="pdfModal">
+    <div class="viewer-content">
+      <div class="viewer-header">
+        <div class="viewer-title" id="modalTitle">Visor de Documento</div>
+        <button class="viewer-close" onclick="closeViewer()">✕</button>
+      </div>
+      <div class="viewer-body">
+        <iframe id="pdfFrame" src="" title="Visor de PDF"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const items = [
+      { id: 1, title: "1. Aprendizaje Guiado", file: "1. Aprendizaje Guiado.pdf", cover: "1. Aprendizaje Guiado Portada.png" },
+      { id: 2, title: "2. Aprendizaje Guiado", file: "2. Aprendizaje Guiado.pdf", cover: "2. Aprendizaje Guiado Portada.png" },
+      { id: 3, title: "3. Aprendizaje Guiado", file: "3. Aprendizaje Guiado.pdf", cover: "3. Aprendizaje Guiado Portada - copia.png" },
+      { id: 4, title: "4. Aprendizaje Guiado", file: "4. Aprendizaje Guiado.pdf", cover: "4. Aprendizaje Guiado Portada.png" },
+      { id: 5, title: "5. Aprendizaje Guiado", file: "5. Aprendizaje Guiado.pdf", cover: "5. Aprendizaje Guiado Portada.png" },
+      { id: 6, title: "6. Aprendizaje Guiado", file: "6. Aprendizaje Guiado.pdf", cover: "6. Aprendizaje Guiado Portada.png" },
+      { id: 7, title: "7. Aprendizaje Guiado", file: "7. Aprendizaje Guiado.pdf", cover: "7 Aprendizaje Guiado Portada.png" },
+      { id: 8, title: "8. Aprendizaje Guiado", file: "8. Aprendizaje Guiado.pdf", cover: "8. Aprendizaje Guiado Portada.png" },
+      { id: 9, title: "9. Aprendizaje Guiado", file: "9. Aprendizaje Guiado.pdf", cover: "9. Aprendizaje Guiado Portada.png" },
+      { id: 10, title: "10. Aprendizaje Guiado", file: "10. Aprendizaje Guiado.pdf", cover: "10. Aprendizaje Guiado Portada.png" },
+      { id: 11, title: "11. Aprendizagem Guiada", file: "11. Aprendizagem Guiada.pdf", cover: "11. Aprendizagem Guiada Portada.png" },
+      { id: 12, title: "12. Aprendizaje Guiado", file: "12. Aprendizaje Guiado.pdf", cover: "12. Aprendizaje Guiado Portada.png" },
+      { id: 13, title: "13. Aprendizaje Guiado", file: "13. Aprendizaje Guiado.pdf", cover: "13. Aprendizaje Guiado Portada.png" },
+      { id: 14, title: "14. Aprendizaje Guiado", file: "14. Aprendizaje Guiado.pdf", cover: "14. Aprendizaje Guiado Portada.png" },
+      { id: 15, title: "15. Aprendizagem Guiada", file: "15. Aprendizagem Guiada.pdf", cover: "15. Aprendizagem Guiada Portada.png" },
+      { id: 16, title: "16. Aprendizaje Guiado", file: "16. Aprendizaje Guiado.pdf", cover: "16. Aprendizaje Guiado Portada.png" },
+      { id: 17, title: "17. Aprendizaje Guiado", file: "17. Aprendizaje Guiado.pdf", cover: "17. Aprendizaje Guiado Portada.png" },
+      { id: 18, title: "18. Aprendizaje Guiado", file: "18. Aprendizaje Guiado.pdf", cover: "18. Aprendizaje Guiado Portada.png" },
+      { id: 19, title: "19. Aprendizaje Guiado", file: "19. Aprendizaje Guiado.pdf", cover: "19. Aprendizaje Guiado Portada.png" },
+      { id: 20, title: "20. Aprendizaje Guiado", file: "20. Aprendizaje Guiado.pdf", cover: "20. Aprendizaje Guiado Portada.png" },
+      { id: 21, title: "21. Aprendizaje Guiado", file: "21. Aprendizaje Guiado.pdf", cover: "21. Aprendizaje Guiado Portada.png" },
+      { id: 22, title: "22. Aprendizaje Guiado", file: "22. Aprendizaje Guiado.pdf", cover: "22. Aprendizaje Guiado Portada.png" },
+      { id: 23, title: "23. Aprendizaje Guiado", file: "23. Aprendizaje Guiado.pdf", cover: "23. Aprendizaje Guiado Portada.png" },
+      { id: 24, title: "24. Aprendizaje Guiado", file: "24. Aprendizaje Guiado.pdf", cover: "24. Aprendizaje Guiado Portada.png" },
+      { id: 25, title: "25. Aprendizaje Guiado", file: "25. Aprendizaje Guiado.pdf", cover: "25. Aprendizaje Guiado Portada.png" }
+    ];
+
+    function renderCatalog() {
+      const grid = document.getElementById('catalogGrid');
+      if (!grid) return;
+      grid.innerHTML = '';
+      
+      items.forEach(item => {
+        const card = document.createElement('div');
+        card.className = 'catalog-card';
+        card.innerHTML = `
+          <span class="item-badge">Vol. ${item.id}</span>
+          <div class="card-thumbnail">
+            <img src="${item.cover}" alt="Portada ${item.title}" onerror="this.onerror=null; this.src='7 Aprendizaje Guiado Portada.png';">
+          </div>
+          <h3>${item.title}</h3>
+          <div class="card-footer">
+            <button class="btn btn-red" onclick="openViewer('${item.file}', '${item.title}')" style="padding: 0.5rem 1.2rem; font-size: 0.85rem; width:100%; justify-content:center;">📖 Leer en Visor</button>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    function openViewer(pdfFile, title) {
+      document.getElementById('modalTitle').innerText = title;
+      document.getElementById('pdfFrame').src = pdfFile;
+      document.getElementById('pdfModal').style.display = 'flex';
+    }
+
+    function closeViewer() {
+      document.getElementById('pdfModal').style.display = 'none';
+      document.getElementById('pdfFrame').src = '';
+    }
+
+    window.onload = () => {
+      renderCatalog();
+    };
+  </script>
 </body>
 </html>
