@@ -423,6 +423,7 @@
       padding: 0.25rem 0.7rem;
       border-radius: 999px;
       border: 1px solid rgba(153, 27, 27, 0.4);
+      z-index: 2;
     }
 
     .catalog-card h3 {
@@ -431,6 +432,7 @@
       margin-bottom: 0.8rem;
       line-height: 1.3;
       padding-right: 4.5rem;
+      font-family: var(--font-title);
     }
 
     .catalog-card p {
@@ -439,28 +441,6 @@
       margin-bottom: 1.5rem;
       line-height: 1.5;
       text-align: justify;
-    }
-
-    .card-footer {
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
-      padding-top: 1.2rem;
-    }
-
-    .card-actions {
-      display: flex;
-      gap: 0.5rem;
-    }
-
-    footer {
-      border-top: 1px solid var(--border-card);
-      padding: 3rem 0;
-      text-align: center;
-      color: var(--text-muted);
-      font-size: 0.85rem;
-      background: var(--bg-dark);
     }
 
     .card-thumbnail {
@@ -485,7 +465,22 @@
       background: #0b1329;
     }
 
-    /* Modal / Document Viewer Overlay CSS (Corrección) */
+    .card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding-top: 1.2rem;
+    }
+
+    .card-actions {
+      display: flex;
+      gap: 0.5rem;
+      width: 100%;
+      justify-content: center;
+    }
+
+    /* Modal / Document Viewer Overlay CSS */
     .viewer-modal {
       display: none;
       position: fixed;
@@ -557,6 +552,15 @@
       border: none;
     }
 
+    footer {
+      border-top: 1px solid var(--border-card);
+      padding: 3rem 0;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      background: var(--bg-dark);
+    }
+
     @media (max-width: 950px) {
       .hero-grid { grid-template-columns: 1fr; text-align: center; }
       .hero-btns { justify-content: center; }
@@ -577,12 +581,13 @@
         </div>
       </a>
 
-      <!-- Centro: Pestañas de Navegación y Botón de Aportar -->
+      <!-- Centro: Pestañas de Navegación y Botón de Aportar (Reordenado) -->
       <nav class="nav-center">
+        <a href="#congresos">Congresos</a>
+        <a href="#cursos">Cursos Online</a>
         <a href="#libros">Libros</a>
         <a href="#aprendizaje">Aprendizaje Guiado</a>
-        <a href="#cursos">Cursos Online</a>
-        <a href="#congresos">Congresos</a>
+        <a href="#herramientas">Herramientas</a>
         <a href="https://paypal.me/spilimcurso" target="_blank" rel="noopener noreferrer" class="btn btn-donate">☕ Aportar / Donar</a>
       </nav>
 
@@ -596,7 +601,7 @@
   </header>
 
   <main>
-    <!-- Hero Section -->
+    <!-- 1. Hero Section -->
     <section class="hero">
       <div class="container hero-grid">
         <div>
@@ -621,7 +626,7 @@
       </div>
     </section>
 
-    <!-- Author Section -->
+    <!-- 2. Author Section -->
     <section class="author-section" id="profesor">
       <div class="container">
         <div class="author-card-centered">
@@ -652,7 +657,133 @@
       </div>
     </section>
 
-    <!-- Libros Section -->
+    <!-- 3. Participación en Congresos - Artículos Científicos Section -->
+    <section class="section-block" id="congresos">
+      <div class="container">
+        <div class="section-head">
+          <h2>Participación en Congresos & Artículos Científicos</h2>
+          <p>Ponencias y publicaciones técnicas presentadas en foros académicos internacionales de ingeniería de tasación y valuación.</p>
+        </div>
+
+        <div class="catalog-grid">
+          <!-- Congreso 1 -->
+          <div class="catalog-card">
+            <span class="item-badge">Congreso 2022</span>
+            <div class="card-thumbnail">
+              <img src="MCamacaroEMockLares 2022.jpg" alt="LARES 2022" onerror="this.onerror=null; this.src='LOGO EVMC.jpg';">
+            </div>
+            <div>
+              <h3>Ponencia & Artículo LARES 2022</h3>
+              <p>Participación y divulgación de investigación en el congreso de la Latin American Real Estate Society.</p>
+            </div>
+            <div class="card-footer">
+              <div class="card-actions" style="width:100%;">
+                <a href="https://mundo-valor.github.io/Conferencia_Lares2022/" style="padding:0.5rem 1rem; font-size:0.8rem; width:100%; justify-content:center;" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Ver Artículo / Ponencia</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Congreso 2 -->
+          <div class="catalog-card">
+            <span class="item-badge">Congreso 2022</span>
+            <div class="card-thumbnail">
+              <img src="ID10ISAHP2022.jpg" alt="ISAHP 2022" onerror="this.onerror=null; this.src='LOGO EVMC.jpg';">
+            </div>
+            <div>
+              <h3>Ponencia & Artículo ISAHP 2022</h3>
+              <p>Investigación presentada en el International Symposium on the Analytic Hierarchy Process.</p>
+            </div>
+            <div class="card-footer">
+              <div class="card-actions" style="width:100%;">
+                <a href="https://mundo-valor.github.io/conference_ISAHP2022/" style="padding:0.5rem 1rem; font-size:0.8rem; width:100%; justify-content:center;" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Ver Artículo / Ponencia</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Congreso 3 -->
+          <div class="catalog-card">
+            <span class="item-badge">Congreso 2024</span>
+            <div class="card-thumbnail">
+              <img src="MCamacaroLares2024.jpg" alt="LARES 2024" onerror="this.onerror=null; this.src='LOGO EVMC.jpg';">
+            </div>
+            <div>
+              <h3>Ponencia & Artículo LARES 2024</h3>
+              <p>Contribución científica y exposición de modelos aplicados en el encuentro anual de LARES.</p>
+            </div>
+            <div class="card-footer">
+              <div class="card-actions" style="width:100%;">
+                <a href="https://mundo-valor.github.io/conferencia_LARES2024/" style="padding:0.5rem 1rem; font-size:0.8rem; width:100%; justify-content:center;" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Ver Artículo / Ponencia</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Congreso 4 -->
+          <div class="catalog-card">
+            <span class="item-badge">Congreso 2024</span>
+            <div class="card-thumbnail">
+              <img src="AvataresEnglishMCamacaroISAHP2024.jpg" alt="ISAHP 2024" onerror="this.onerror=null; this.src='LOGO EVMC.jpg';">
+            </div>
+            <div>
+              <h3>Ponencia & Artículo ISAHP 2024</h3>
+              <p>Estudio especializado expuesto en el foro internacional de toma de decisiones multicriterio.</p>
+            </div>
+            <div class="card-footer">
+              <div class="card-actions" style="width:100%;">
+                <a href="https://mundo-valor.github.io/conference_ISAHP2024/" style="padding:0.5rem 1rem; font-size:0.8rem; width:100%; justify-content:center;" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Ver Artículo / Ponencia</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Cursos Online Section -->
+    <section class="section-block" id="cursos">
+      <div class="container">
+        <div class="section-head">
+          <h2>Cursos Online Especializados</h2>
+          <p>Capacitación académica con opciones síncrona / asíncrona y certificación oficial EVMC.</p>
+        </div>
+
+        <div class="catalog-grid">
+          <!-- Curso 1 -->
+          <div class="catalog-card" style="border-color: rgba(153, 27, 27, 0.4);">
+            <span class="item-badge" style="background: rgba(153, 27, 27, 0.2); color: #fca5a5; border-color: rgba(153, 27, 27, 0.4);">Curso Online</span>
+            <div class="card-thumbnail">
+              <img src="2GMaquinaria_Heideck.2026.jpg" alt="Valuación de Máquinas y Equipos Industriales (Criterio Heideck)" onerror="this.onerror=null; this.src='LOGO EVMC.jpg';">
+            </div>
+            <div>
+              <h3>Valuación de Máquinas y Equipos Industriales (Criterio Heideck)</h3>
+              <p>Módulo histórico, análisis de tablas originales y aplicación del procedimiento de Erich Heideck con IA generativa.</p>
+            </div>
+            <div class="card-footer">
+              <div class="card-actions" style="width:100%;">
+                <a href="https://mundo-valor.github.io/cursoonline-maquinasheideck/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding:0.5rem 1rem; font-size:0.8rem; width:100%; justify-content:center;">Ver Curso</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Curso 2 -->
+          <div class="catalog-card" style="border-color: rgba(153, 27, 27, 0.4);">
+            <span class="item-badge" style="background: rgba(153, 27, 27, 0.2); color: #fca5a5; border-color: rgba(153, 27, 27, 0.4);">Curso Online</span>
+            <div class="card-thumbnail">
+              <img src="28082026 Curso Online.jpg" alt="Valuación de Máquinas y Equipos Industriales (Criterio Heideck 0941)" onerror="this.onerror=null; this.src='LOGO EVMC.jpg';">
+            </div>
+            <div>
+              <h3>Valuación de Máquinas y Equipos Industriales (Criterio Heideck 0941)</h3>
+              <p>Interpretación avanzada integrando el nuevo marco normativo del Anexo Técnico del IGAC (Resolución 0941.2026).</p>
+            </div>
+            <div class="card-footer">
+              <div class="card-actions" style="width:100%;">
+                <a href="https://mundo-valor.github.io/cursoonline_Heideck0941/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding:0.5rem 1rem; font-size:0.8rem; width:100%; justify-content:center;">Ver Curso</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Libros Section -->
     <section class="section-block" id="libros">
       <div class="container">
         <div class="section-head">
@@ -818,7 +949,7 @@
           <div class="catalog-card">
             <span class="item-badge">E-book</span>
             <div class="card-thumbnail">
-              <img src="Cuarderno tasacion.png" alt="Un Cuaderno de Tasación" onerror="this.onerror=null; this.src='LOGO EVMC.jpg';">
+              <img src="Cuarderno tasacion_2.png" alt="Un Cuaderno de Tasación" onerror="this.onerror=null; this.src='LOGO EVMC.jpg';">
             </div>
             <div>
               <h3>Un Cuaderno de Tasación</h3>
@@ -835,7 +966,7 @@
       </div>
     </section>
 
-    <!-- Aprendizaje Guiado Section -->
+    <!-- 6. Aprendizaje Guiado Section -->
     <section class="section-block" id="aprendizaje">
       <div class="container">
         <div class="section-head">
@@ -844,133 +975,21 @@
         </div>
 
         <div class="catalog-grid" id="catalogGrid">
-          <!-- Generado dinámicamente -->
+          <!-- Generado dinámicamente por JS -->
         </div>
       </div>
     </section>
 
-    <!-- Cursos Online Section -->
-    <section class="section-block" id="cursos">
+    <!-- 7. Herramientas de Aplicación Section -->
+    <section class="section-block" id="herramientas">
       <div class="container">
         <div class="section-head">
-          <h2>Cursos Online Especializados</h2>
-          <p>Capacitación académica con opciones síncrona / asíncrona y certificación oficial EVMC.</p>
+          <h2>Herramientas de Aplicación & Simuladores</h2>
+          <p>Soluciones interactivas, calculadoras y modelos de ciencia de datos aplicados a la valuación de activos e ingeniería de tasación.</p>
         </div>
 
-        <div class="catalog-grid">
-          <!-- Curso 1 -->
-          <div class="catalog-card" style="border-color: rgba(153, 27, 27, 0.4);">
-            <span class="item-badge" style="background: rgba(153, 27, 27, 0.2); color: #fca5a5; border-color: rgba(153, 27, 27, 0.4);">Curso Online</span>
-            <div class="card-thumbnail">
-              <img src="2GMaquinaria_Heideck.2026.jpg" alt="Valuación de Máquinas y Equipos Industriales (Criterio Heideck)" onerror="this.onerror=null; this.src='LOGO EVMC.jpg';">
-            </div>
-            <div>
-              <h3>Valuación de Máquinas y Equipos Industriales (Criterio Heideck)</h3>
-              <p>Módulo histórico, análisis de tablas originales y aplicación del procedimiento de Erich Heideck con IA generativa.</p>
-            </div>
-            <div class="card-footer">
-              <div class="card-actions" style="width:100%;">
-                <a href="https://mundo-valor.github.io/cursoonline-maquinasheideck/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding:0.5rem 1rem; font-size:0.8rem; width:100%; justify-content:center;">Ver Curso</a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Curso 2 -->
-          <div class="catalog-card" style="border-color: rgba(153, 27, 27, 0.4);">
-            <span class="item-badge" style="background: rgba(153, 27, 27, 0.2); color: #fca5a5; border-color: rgba(153, 27, 27, 0.4);">Curso Online</span>
-            <div class="card-thumbnail">
-              <img src="28082026 Curso Online.jpg" alt="Valuación de Máquinas y Equipos Industriales (Criterio Heideck 0941)" onerror="this.onerror=null; this.src='LOGO EVMC.jpg';">
-            </div>
-            <div>
-              <h3>Valuación de Máquinas y Equipos Industriales (Criterio Heideck 0941)</h3>
-              <p>Interpretación avanzada integrando el nuevo marco normativo del Anexo Técnico del IGAC (Resolución 0941.2026).</p>
-            </div>
-            <div class="card-footer">
-              <div class="card-actions" style="width:100%;">
-                <a href="https://mundo-valor.github.io/cursoonline_Heideck0941/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding:0.5rem 1rem; font-size:0.8rem; width:100%; justify-content:center;">Ver Curso</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Participación en Congresos - Artículos Científicos Section -->
-    <section class="section-block" id="congresos">
-      <div class="container">
-        <div class="section-head">
-          <h2>Participación en Congresos & Artículos Científicos</h2>
-          <p>Ponencias y publicaciones técnicas presentadas en foros académicos internacionales de ingeniería de tasación y valuación.</p>
-        </div>
-
-        <div class="catalog-grid">
-          <!-- Congreso 1 -->
-          <div class="catalog-card">
-            <span class="item-badge">Congreso 2022</span>
-            <div class="card-thumbnail">
-              <img src="MCamacaroEMockLares 2022.jpg" alt="LARES 2022" onerror="this.onerror=null; this.src='LOGO EVMC.jpg';">
-            </div>
-            <div>
-              <h3>Ponencia & Artículo LARES 2022</h3>
-              <p>Participación y divulgación de investigación en el congreso de la Latin American Real Estate Society.</p>
-            </div>
-            <div class="card-footer">
-              <div class="card-actions" style="width:100%;">
-                <a href="https://mundo-valor.github.io/Conferencia_Lares2022/" style="padding:0.5rem 1rem; font-size:0.8rem; width:100%; justify-content:center;" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Ver Artículo / Ponencia</a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Congreso 2 -->
-          <div class="catalog-card">
-            <span class="item-badge">Congreso 2022</span>
-            <div class="card-thumbnail">
-              <img src="ID10ISAHP2022.jpg" alt="ISAHP 2022" onerror="this.onerror=null; this.src='LOGO EVMC.jpg';">
-            </div>
-            <div>
-              <h3>Ponencia & Artículo ISAHP 2022</h3>
-              <p>Investigación presentada en el International Symposium on the Analytic Hierarchy Process.</p>
-            </div>
-            <div class="card-footer">
-              <div class="card-actions" style="width:100%;">
-                <a href="https://mundo-valor.github.io/conference_ISAHP2022/" style="padding:0.5rem 1rem; font-size:0.8rem; width:100%; justify-content:center;" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Ver Artículo / Ponencia</a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Congreso 3 -->
-          <div class="catalog-card">
-            <span class="item-badge">Congreso 2024</span>
-            <div class="card-thumbnail">
-              <img src="MCamacaroLares2024.jpg" alt="LARES 2024" onerror="this.onerror=null; this.src='LOGO EVMC.jpg';">
-            </div>
-            <div>
-              <h3>Ponencia & Artículo LARES 2024</h3>
-              <p>Contribución científica y exposición de modelos aplicados en el encuentro anual de LARES.</p>
-            </div>
-            <div class="card-footer">
-              <div class="card-actions" style="width:100%;">
-                <a href="https://mundo-valor.github.io/conferencia_LARES2024/" style="padding:0.5rem 1rem; font-size:0.8rem; width:100%; justify-content:center;" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Ver Artículo / Ponencia</a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Congreso 4 -->
-          <div class="catalog-card">
-            <span class="item-badge">Congreso 2024</span>
-            <div class="card-thumbnail">
-              <img src="AvataresEnglishMCamacaroISAHP2024.jpg" alt="ISAHP 2024" onerror="this.onerror=null; this.src='LOGO EVMC.jpg';">
-            </div>
-            <div>
-              <h3>Ponencia & Artículo ISAHP 2024</h3>
-              <p>Estudio especializado expuesto en el foro internacional de toma de decisiones multicriterio.</p>
-            </div>
-            <div class="card-footer">
-              <div class="card-actions" style="width:100%;">
-                <a href="https://mundo-valor.github.io/conference_ISAHP2024/" style="padding:0.5rem 1rem; font-size:0.8rem; width:100%; justify-content:center;" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Ver Artículo / Ponencia</a>
-              </div>
-            </div>
-          </div>
+        <div class="catalog-grid" id="herramientasGrid">
+          <!-- Generado dinámicamente por JavaScript -->
         </div>
       </div>
     </section>
@@ -999,6 +1018,52 @@
   </div>
 
   <script>
+    
+    const herramientasData = [
+      { id: 1, title: "Simulador de maquinaria - Heideck", url: "https://mundo-valor.github.io/Simulamaq-heideck2026", cover: "1. Herramienta.jpg", desc: "Simulador interactivo del procedimiento propuesto por Erich Heideck para estimar el valor actual de maquinaria e instalaciones." },
+      { id: 2, title: "Valor de maquinaria y equipos (Decreto 0941.2026)", url: "https://mundo-valor.github.io/maquinaria-09412026", cover: "2. Herramienta.jpg", desc: "Informe técnico de cálculo según el Anexo Técnico del IGAC (Resolución 0941 de 2026)." },
+      { id: 3, title: "Estimador de valores actuales", url: "https://mundo-valor.github.io/const-maq.d0912026", cover: "3. Herramienta.jpg", desc: "Herramienta de estimación de valores actuales para construcciones y maquinaria y equipo." },
+      { id: 4, title: "Modelado y comparativa de métodos de valuación", url: "https://mundo-valor.github.io/docesolucionesmaquinas/", cover: "4. Herramienta.jpg", desc: "Plataforma interactiva para la determinación del valor actual aplicando simultáneamente 12 metodologías normativas." },
+      { id: 5, title: "Plataforma de valuación industrial de máquinas y equipos", url: "https://mundo-valor.github.io/maquinasequipos-5metodos/", cover: "5. Herramienta.jpg", desc: "Modelo de tasación con nacionalización, métodos de depreciación y dictamen pericial completo." },
+      { id: 6, title: "Módulo especial: Auténtico Criterio Heideck", url: "https://mundo-valor.github.io/maquina-moduloheideck100/", cover: "6. Herramienta.jpg", desc: "Valuación analítica de maquinaria considerando vida útil, esfuerzo operativo y corrección por jornada." },
+      { id: 7, title: "Plataforma de valuación industrial (+ Heidecke)", url: "https://mundo-valor.github.io/maquinas-6metodosheideck/", cover: "7. Herramienta.jpg", desc: "Solución integral de valuación industrial incorporando métodos estadísticos y factores de ajuste normativos." },
+      { id: 8, title: "Test de rigor Científico y Normativo", url: "https://mundo-valor.github.io/prueba-conocimientos-RHD02492026/", cover: "8. Herramienta.jpg", desc: "Evaluación diagnóstica sobre las inconsistencias y precisiones matemáticas en la Depreciación Ross-Heideck." },
+      { id: 9, title: "Valor del inmueble según el Decreto 0941.2026", url: "https://mundo-valor.github.io/valuacionintegral-costoRH", cover: "9. Herramienta.jpg", desc: "Valuación inmobiliaria integral: Método del Costo (Terreno + Construcción con Depreciación Ross-Heideck)." },
+      { id: 10, title: "Valor de maquinaria y equipos (Alt)", url: "https://mundo-valor.github.io/maquinaria-09412026", cover: "LOGO EVMC.jpg", desc: "Solución alternativa de cálculo según el Anexo Técnico del IGAC (Resolución 0941 de 2026)." },
+      { id: 12, title: "Método de la renta", url: "https://mundo-valor.github.io/metodorenta-d09412026", cover: "LOGO EVMC.jpg", desc: "Aplicación del método de capitalización de rentas conforme a las normativas vigentes." },
+      { id: 13, title: "Aplicando el método Ross-Heideck", url: "https://mundo-valor.github.io/metodo-ross-heideck2026", cover: "LOGO EVMC.jpg", desc: "Cuestionario y explicativo detallado del procedimiento original de Ross-Heideck." },
+      { id: 14, title: "Auditoría Metodología Ross-Heideck", url: "https://mundo-valor.github.io/auditoria-RH09412026", cover: "LOGO EVMC.jpg", desc: "Herramienta de revisión y auditoría técnica para cálculos basados en la metodología Ross-Heideck." },
+      { id: 15, title: "Aplicación del método contributivo", url: "https://mundo-valor.github.io/metodo-contributivo", cover: "LOGO EVMC.jpg", desc: "Simulador práctico para el desglose y aplicación del método contributivo en inmuebles." },
+      { id: 16, title: "Aplicación del método evolutivo", url: "https://mundo-valor.github.io/m-todoevolutivo/", cover: "LOGO EVMC.jpg", desc: "Plataforma de cálculo y estimación utilizando el método evolutivo para tasación inmobiliaria." },
+      { id: 17, title: "Método Participativo", url: "https://mundo-valor.github.io/metodo-participativorural/", cover: "LOGO EVMC.jpg", desc: "Herramienta especializada para la valuación de predios rurales bajo el enfoque participativo." },
+      { id: 18, title: "Atipicómetro inmobiliario", url: "https://mundo-valor.github.io/atipicometro_inmobiliario/", cover: "LOGO EVMC.jpg", desc: "Calculadora estadística para la detección y corrección de valores atípicos en muestras de mercado." },
+      { id: 19, title: "Módulo de Estadística Inferencial", url: "https://mundo-valor.github.io/modoloest-inferencial/", cover: "LOGO EVMC.jpg", desc: "Aplicación de ciencia de datos y estadística inferencial para análisis valuatorios avanzados." }
+    ];
+
+    function renderHerramientas() {
+      const grid = document.getElementById('herramientasGrid');
+      if (!grid) return;
+      grid.innerHTML = '';
+      
+      herramientasData.forEach(item => {
+        const card = document.createElement('div');
+        card.className = 'catalog-card';
+        card.style.borderColor = "rgba(0, 112, 186, 0.3)";
+        card.innerHTML = `
+          <span class="item-badge" style="background: rgba(0, 112, 186, 0.2); color: #60a5fa; border-color: rgba(0, 112, 186, 0.4);">Herramienta</span>
+          <div class="card-thumbnail">
+            <img src="${item.cover}" alt="Herramienta ${item.id}" onerror="this.onerror=null; this.src='LOGO EVMC.jpg';">
+          </div>
+          <h3>${item.title}</h3>
+          <p>${item.desc}</p>
+          <div class="card-footer" style="margin-top:auto;">
+            <a href="${item.url}" target="_blank" rel="noopener noreferrer" class="btn btn-red" style="padding: 0.5rem 1.2rem; font-size: 0.85rem; width:100%; justify-content:center; background: linear-gradient(135deg, #1d4ed8, #2563eb); box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4);">Abrir Herramienta ➔</a>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
     const items = [
       { id: 1, title: "1. Aprendizaje Guiado", file: "1. Aprendizaje Guiado.pdf", cover: "1. Aprendizaje Guiado Portada.png" },
       { id: 2, title: "2. Aprendizaje Guiado", file: "2. Aprendizaje Guiado.pdf", cover: "2. Aprendizaje Guiado Portada.png" },
@@ -1061,6 +1126,7 @@
     }
 
     window.onload = () => {
+      renderHerramientas();
       renderCatalog();
     };
   </script>
