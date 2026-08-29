@@ -463,13 +463,6 @@
       background: var(--bg-dark);
     }
 
-    @media (max-width: 950px) {
-      .hero-grid { grid-template-columns: 1fr; text-align: center; }
-      .hero-btns { justify-content: center; }
-      .nav-center { display: none; }
-      body { text-align: left; }
-    }
-  
     .card-thumbnail {
       width: 100%;
       height: 320px;
@@ -491,7 +484,85 @@
       display: block;
       background: #0b1329;
     }
-    
+
+    /* Modal / Document Viewer Overlay CSS (Corrección) */
+    .viewer-modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(7, 12, 24, 0.92);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .viewer-content {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: 20px;
+      width: 100%;
+      max-width: 1000px;
+      height: 85vh;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.9);
+      overflow: hidden;
+    }
+
+    .viewer-header {
+      padding: 1rem 1.5rem;
+      background: #1e293b;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border-card);
+    }
+
+    .viewer-title {
+      font-family: var(--font-title);
+      font-size: 1.1rem;
+      color: #fff;
+    }
+
+    .viewer-close {
+      background: rgba(255,255,255,0.1);
+      border: none;
+      color: #fff;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      font-weight: bold;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+    }
+
+    .viewer-close:hover {
+      background: var(--accent-red);
+    }
+
+    .viewer-body {
+      flex: 1;
+      width: 100%;
+      background: #0f172a;
+    }
+
+    .viewer-body iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    @media (max-width: 950px) {
+      .hero-grid { grid-template-columns: 1fr; text-align: center; }
+      .hero-btns { justify-content: center; }
+      .nav-center { display: none; }
+      body { text-align: left; }
+    }
   </style>
 </head>
 <body>
@@ -747,7 +818,7 @@
           <div class="catalog-card">
             <span class="item-badge">E-book</span>
             <div class="card-thumbnail">
-              <img src="Cuaderno tasacion.png" alt="Un Cuaderno de Tasación" onerror="this.onerror=null; this.src='LOGO EVMC.jpg';">
+              <img src="Cuarderno tasacion_2.png" alt="Un Cuaderno de Tasación" onerror="this.onerror=null; this.src='LOGO EVMC.jpg';">
             </div>
             <div>
               <h3>Un Cuaderno de Tasación</h3>
