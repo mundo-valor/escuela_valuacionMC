@@ -97,14 +97,16 @@
 
     .nav-center {
       display: flex;
-      gap: 1.5rem;
+      gap: 1.2rem;
       align-items: center;
+      flex-wrap: wrap;
+      justify-content: center;
     }
 
     .nav-center a {
       color: var(--text-muted);
       text-decoration: none;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       font-weight: 600;
       transition: color 0.2s;
     }
@@ -498,6 +500,42 @@
       background: #0b1329;
     }
 
+    /* Estilos específicos para la sección de Videos - Podcast - Audios con fondo Carrusel.jpg */
+    .carrusel-section {
+      background-image: linear-gradient(rgba(7, 12, 24, 0.88), rgba(7, 12, 24, 0.92)), url('Carrusel.jpg');
+      background-size: cover;
+      background-position: center;
+      border-top: 1px solid var(--border-card);
+      border-bottom: 1px solid var(--border-card);
+    }
+
+    .carrusel-showcase-card {
+      background: linear-gradient(145deg, rgba(15, 23, 42, 0.90), rgba(30, 41, 59, 0.95));
+      border: 1px solid rgba(0, 112, 186, 0.4);
+      border-radius: 20px;
+      padding: 3rem;
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+      box-shadow: 0 25px 50px rgba(0,0,0,0.8), 0 0 30px rgba(0, 112, 186, 0.2);
+    }
+
+    .carrusel-showcase-card h3 {
+      font-family: var(--font-title);
+      font-size: 1.8rem;
+      color: #fff;
+      margin-bottom: 1rem;
+    }
+
+    .carrusel-showcase-card p {
+      font-family: var(--font-reading);
+      font-size: 1.05rem;
+      color: #cbd5e1;
+      line-height: 1.8;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
     /* Modal / Document Viewer Overlay CSS */
     .viewer-modal {
       display: none;
@@ -587,6 +625,7 @@
       <nav class="nav-center">
         <a href="#congresos">Congresos</a>
         <a href="#cursos">Cursos Online</a>
+        <a href="#multimedia">Videos - Podcast</a>
         <a href="#libros">Libros</a>
         <a href="#aprendizaje">Aprendizaje Guiado</a>
         <a href="#herramientas">Herramientas</a>
@@ -778,6 +817,26 @@
               </div>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN REUBICADA: Videos - Podcast - Audios (El Carrusel del Valor) -->
+    <section class="section-block carrusel-section" id="multimedia">
+      <div class="container">
+        <div class="section-head">
+          <h2>VIDEOS - PODCAST - AUDIOS</h2>
+          <p>Explora el acervo audiovisual completo de Mundo Valor a través de nuestra herramienta interactiva de búsqueda y reproducción[cite: 1].</p>
+        </div>
+
+        <div class="carrusel-showcase-card">
+          <h3>EL CARRUSEL DEL VALOR</h3>
+          <p>
+            Herramienta interactiva avanzada para buscar, filtrar, armar listas de reproducción personalizadas y disfrutar de todo el contenido educativo en video y audio generado por el Prof. Ing. Miguel Camacaro Pérez.
+          </p>
+          <a href="https://mundo-valor.github.io/carrousel_demundovalor/" target="_blank" rel="noopener noreferrer" class="btn btn-red" style="padding: 0.8rem 2rem; font-size: 1rem;">
+            ▶ Acceder a El Carrusel del Valor
+          </a>
         </div>
       </div>
     </section>
