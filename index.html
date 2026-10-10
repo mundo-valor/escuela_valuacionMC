@@ -1306,7 +1306,8 @@
       { id: 25, title: "Regresión robusta de Huber", url: "https://mundo-valor.github.io/regresion_robustahuber/", cover: "Regresion_Huber.png", desc: "Ajusta un modelo de Huber para reducir la influencia de precios anómalos o atípicos en tus muestras y estima valores con mayor precisión." },
       { id: 26, title: "Regresión logística", url: "https://mundo-valor.github.io/regresion_logistica2026/", cover: "Regresion_logistica.png", desc: "Estima la probabilidad de que un inmueble se venda, alquile o supere un precio mediante un modelo logístico explicado en lenguaje claro." },
       { id: 27, title: "Analizador de Regresión Espacial", url: "https://mundo-valor.github.io/regresion_espacial2026/", cover: "Regresion_espacial.jpg", desc: "Sube una muestra de mercado. El análisis de econometría espacial se ejecuta localmente en tu navegador con Python (Pyodide) para máxima privacidad." },
-      { id: 28, title: "Regresión Simbólica – Redes KAN", url: "https://mundo-valor.github.io/regresion_simbolicaKAN/", cover: "Regresion_simboloca.jpg", desc: "Redes neuronales cuyas activaciones se aprenden en las aristas, ofreciendo un camino directo desde los datos hasta una fórmula matemática legible e interpretable." }
+      { id: 28, title: "Regresión Simbólica – Redes KAN", url: "https://mundo-valor.github.io/regresion_simbolicaKAN/", cover: "Regresion_simboloca.jpg", desc: "Redes neuronales cuyas activaciones se aprenden en las aristas, ofreciendo un camino directo desde los datos hasta una fórmula matemática legible e interpretable." },
+      { id: 29, title: "Regression Kriging", url: "https://mundo-valor.github.io/regresion_kigring/", cover: "Regresion_krigging.jpg", desc: "Una regresión para la tendencia y kriging para los residuos: estimaciones de valor en cualquier punto del territorio, con su incertidumbre." }
     ];
 
     function renderHerramientas() {
@@ -1372,11 +1373,11 @@
         card.innerHTML = `
           <span class="item-badge">Vol. ${item.id}</span>
           <div class="card-thumbnail">
-            <img src="${item.cover}" alt="Portada ${item.title}" onerror="this.onerror=null; this.src='7 Aprendizaje Guiado Portada.png';">
+            <img src="\${item.cover}" alt="Portada \${item.title}" onerror="this.onerror=null; this.src='7 Aprendizaje Guiado Portada.png';">
           </div>
-          <h3>${item.title}</h3>
+          <h3>\${item.title}</h3>
           <div class="card-footer">
-            <button class="btn btn-red" onclick="openViewer('${item.file}', '${item.title}')" style="padding: 0.5rem 1.2rem; font-size: 0.85rem; width:100%; justify-content:center;">📖 Leer en Visor</button>
+            <button class="btn btn-red" onclick="openViewer('\${item.file}', '\${item.title}')" style="padding: 0.5rem 1.2rem; font-size: 0.85rem; width:100%; justify-content:center;">📖 Leer en Visor</button>
           </div>
         `;
         grid.appendChild(card);
