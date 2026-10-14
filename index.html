@@ -1382,11 +1382,11 @@
         card.innerHTML = `
           <span class="item-badge">Vol. ${item.id}</span>
           <div class="card-thumbnail">
-            <img src="\${item.cover}" alt="Portada \${item.title}" onerror="this.onerror=null; this.src='7 Aprendizaje Guiado Portada.png';">
+            <img src="${item.cover}" alt="Portada ${item.title}" onerror="this.onerror=null; this.src='7 Aprendizaje Guiado Portada.png';">
           </div>
-          <h3>\${item.title}</h3>
+          <h3>${item.title}</h3>
           <div class="card-footer">
-            <button class="btn btn-red" onclick="openViewer('\${item.file}', '\${item.title}')" style="padding: 0.5rem 1.2rem; font-size: 0.85rem; width:100%; justify-content:center;">📖 Leer en Visor</button>
+            <button class="btn btn-red" onclick="openViewer('${item.file}', '${item.title}')" style="padding: 0.5rem 1.2rem; font-size: 0.85rem; width:100%; justify-content:center;">📖 Leer en Visor</button>
           </div>
         `;
         grid.appendChild(card);
