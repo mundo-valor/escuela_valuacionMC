@@ -1279,6 +1279,93 @@
   </div>
 
   <script>
+    // Generador dinámico de portadas EVMC para las herramientas 30-38 que originalmente estaban en Base64
+    function generateToolCover(category, title, subtitle, formula) {
+      const canvas = document.createElement('canvas');
+      canvas.width = 640;
+      canvas.height = 360;
+      const ctx = canvas.getContext('2d');
+
+      // Fondo crema editorial EVMC
+      ctx.fillStyle = '#fcfbf7';
+      ctx.fillRect(0, 0, 640, 360);
+
+      // Barra superior de navegación simulada
+      ctx.strokeStyle = '#e2e8f0';
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.moveTo(0, 56);
+      ctx.lineTo(640, 56);
+      ctx.moveTo(0, 88);
+      ctx.lineTo(640, 88);
+      ctx.stroke();
+
+      // Sello circular EVMC simulado
+      ctx.fillStyle = '#475569';
+      ctx.beginPath();
+      ctx.arc(42, 28, 18, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.fillStyle = '#94a3b8';
+      ctx.beginPath();
+      ctx.arc(42, 28, 13, 0, Math.PI * 2);
+      ctx.fill();
+
+      ctx.fillStyle = '#334155';
+      ctx.font = 'bold 11px "Plus Jakarta Sans", sans-serif';
+      ctx.fillText('Escuela de Valuación', 68, 25);
+      ctx.fillText('Miguel Camacaro', 68, 39);
+
+      // Botón azul superior derecho
+      ctx.fillStyle = '#0066b2';
+      ctx.fillRect(525, 12, 95, 30);
+      ctx.fillStyle = '#ffffff';
+      ctx.font = 'bold 10px "Plus Jakarta Sans", sans-serif';
+      ctx.fillText('Donar con PayPal', 534, 31);
+
+      // Categoría superior en terracota
+      ctx.fillStyle = '#9a3412';
+      ctx.font = 'bold 11px "Plus Jakarta Sans", sans-serif';
+      ctx.fillText(category.toUpperCase(), 28, 122);
+
+      // Título principal
+      ctx.fillStyle = '#0f172a';
+      ctx.font = 'bold 28px Georgia, serif';
+      ctx.fillText(title, 28, 160);
+
+      // Subtítulo descriptivo (2 líneas)
+      ctx.fillStyle = '#475569';
+      ctx.font = '14px Georgia, serif';
+      const words = subtitle.split(' ');
+      let line = '';
+      let y = 192;
+      for (let i = 0; i < words.length; i++) {
+        const testLine = line + words[i] + ' ';
+        if (ctx.measureText(testLine).width > 580 && i > 0) {
+          ctx.fillText(line, 28, y);
+          line = words[i] + ' ';
+          y += 22;
+          if (y > 240) break;
+        } else {
+          line = testLine;
+        }
+      }
+      ctx.fillText(line, 28, y);
+
+      // Caja de ecuación inferior con borde azul izquierdo
+      ctx.fillStyle = '#f1f5f9';
+      ctx.fillRect(28, 268, 584, 62);
+      ctx.fillStyle = '#0369a1';
+      ctx.fillRect(28, 268, 4, 62);
+
+      // Ecuación matemática
+      ctx.fillStyle = '#0f172a';
+      ctx.font = 'italic bold 17px Georgia, serif';
+      ctx.textAlign = 'center';
+      ctx.fillText(formula, 320, 305);
+
+      return canvas.toDataURL('image/jpeg', 0.92);
+    }
+
     const herramientasData = [
       { id: 1, title: "Simulador de maquinaria - Heideck", url: "https://mundo-valor.github.io/Simulamaq-heideck2026", cover: "1. Herramienta.jpg", desc: "Simulador interactivo del procedimiento propuesto por Erich Heideck para estimar el valor actual de maquinaria e instalaciones." },
       { id: 2, title: "Valor de maquinaria y equipos (Decreto 0941.2026)", url: "https://mundo-valor.github.io/maquinaria-09412026", cover: "2. Herramienta.jpg", desc: "Informe técnico de cálculo según el Anexo Técnico del IGAC (Resolución 0941 de 2026)." },
@@ -1308,4 +1395,108 @@
       { id: 27, title: "Analizador de Regresión Espacial", url: "https://mundo-valor.github.io/regresion_espacial2026/", cover: "Regresion_espacial.jpg", desc: "Sube una muestra de mercado. El análisis de econometría espacial se ejecuta localmente en tu navegador con Python (Pyodide) para máxima privacidad." },
       { id: 28, title: "Regresión Simbólica – Redes KAN", url: "https://mundo-valor.github.io/regresion_simbolicaKAN/", cover: "Regresion_simboloca.jpg", desc: "Redes neuronales cuyas activaciones se aprenden en las aristas, ofreciendo un camino directo desde los datos hasta una fórmula matemática legible e interpretable." },
       { id: 29, title: "Regression Kriging", url: "https://mundo-valor.github.io/regresion_kigring/", cover: "Regresion_krigging.jpg", desc: "Una regresión para la tendencia y kriging para los residuos: estimaciones de valor en cualquier punto del territorio, con su incertidumbre." },
-      { id: 30, title: "Regresión Ponderada Geográficamente (GWR)", url: "https://mundo-valor.github.io/regresion_GWR/", cover: "data:image/jpeg;base64,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
+      { id: 30, title: "Regresión Ponderada Geográficamente (GWR)", url: "https://mundo-valor.github.io/regresion_GWR/", cover: generateToolCover("Econometría Espacial · Heterogeneidad Local", "Regresión GWR", "Estima coeficientes distintos para cada coordenada geográfica (uᵢ, vᵢ) y revela cómo cambia el mercado en el territorio.", "yᵢ = β₀(uᵢ, vᵢ) + Σₖ βₖ(uᵢ, vᵢ) xᵢₖ + εᵢ"), desc: "Una regresión que amplía el modelo lineal múltiple: en lugar de un coeficiente único, estima coeficientes distintos para cada ubicación y revela cómo cambia el mercado en el territorio." },
+      { id: 31, title: "Filtrado espacial con eigenvectores de Moran", url: "https://mundo-valor.github.io/spatialengivectores_moran/", cover: generateToolCover("Econometría Espacial · Filtrado de Residuos", "Eigenvectores de Moran", "Convierte la estructura espacial de la muestra en variables explicativas ortogonales y elimina la autocorrelación residual.", "y = Xβ + Eγ + ε,   M W M eₖ = λₖ eₖ"), desc: "Convierta la estructura espacial de su muestra en variables explicativas y elimine la autocorrelación que deja el modelo hedónico." },
+      { id: 32, title: "Regresión Cuantílica", url: "https://mundo-valor.github.io/regresion_cuantilica/", cover: generateToolCover("Modelos Robustos · Distribución Condicional", "Regresión Cuantílica", "No solo el precio promedio: estima los cuantiles condicionales (τ = 0.25, 0.50, 0.75) acotando la influencia de atípicos.", "Qᵧ(τ | X) = X'β(τ),   min Σ ρ_τ(yᵢ - xᵢ'β)"), desc: "No solo el precio promedio: el precio bajo, central y alto de inmuebles comparables, con la influencia de los valores atípicos acotada." },
+      { id: 33, title: "Random Forest", url: "https://mundo-valor.github.io/algoritmo_randomforest/", cover: generateToolCover("Aprendizaje Automático · Ensamble de Árboles", "Random Forest", "Cientos de árboles de decisión entrenados mediante bootstrap aggregating votan por el valor final del inmueble.", "ŷ(x) = (1 / B) Σ_b T_b(x)"), desc: "Cientos de árboles de decisión, cada uno entrenado con una muestra distinta, votan por el valor: robustos, poco sensibles al ajuste fino y fáciles de paralelizar." },
+      { id: 34, title: "XGBoost", url: "https://mundo-valor.github.io/algoritmo_XGBoost/", cover: generateToolCover("Aprendizaje Automático · Gradient Boosting", "Algoritmo XGBoost", "Árboles aditivos que corrigen residuos sucesivos con regularización explícita L1/L2 y optimización de segundo orden.", "L = Σ l(yᵢ, ŷᵢ) + Σ Ω(fₖ),   Ω(f) = γT + ½λ||w||²"), desc: "Árboles que se corrigen unos a otros, con regularización explícita y optimización de segundo orden: la referencia en precisión sobre datos tabulares." },
+      { id: 35, title: "LightGBM", url: "https://mundo-valor.github.io/algoritmo_LightBoost/", cover: generateToolCover("Aprendizaje Automático · Boosting por Hojas", "Algoritmo LightGBM", "Boosting por histogramas con crecimiento de árbol leaf-wise: máxima velocidad y eficiencia de memoria en muestras grandes.", "ΔL(leaf-wise) = max_leaf Gain(I_L, I_R)"), desc: "Boosting por histogramas con crecimiento de árbol por hojas: pensado para entrenar muy rápido y con poca memoria cuando la muestra crece." },
+      { id: 36, title: "CatBoost", url: "https://mundo-valor.github.io/algoritmo_catboost/", cover: generateToolCover("Aprendizaje Automático · Árboles Simétricos", "Algoritmo CatBoost", "Boosting con árboles simétricos (oblivious trees) y codificación ordenada nativa para variables categóricas inmobiliarias.", "ŷ(x) = Σ_t α_t · h_t(x),   Target Estadístico Ordenado"), desc: "Boosting con árboles simétricos: estructura compacta, predicción muy rápida y un diseño que reduce el sobreajuste, creado para datos con variables categóricas." },
+      { id: 37, title: "SHAP: valores de Shapley", url: "https://mundo-valor.github.io/XAI_SHAP/", cover: generateToolCover("IA Explicable (XAI) · Teoría de Juegos", "SHAP: Valores de Shapley", "Reparte el valor estimado entre las características del inmueble de forma justa y aditiva a nivel local y global.", "f(x) = φ₀ + Σⱼ φⱼ(x)"), desc: "Reparte el valor estimado entre las características del inmueble de forma justa y aditiva: explica una tasación individual y el comportamiento global del modelo." },
+      { id: 38, title: "LIME: modelos locales", url: "https://mundo-valor.github.io/XAI_LIME/", cover: generateToolCover("IA Explicable (XAI) · Aproximación Local", "LIME: Modelos Locales", "Explica una tasación individual ajustando un modelo lineal interpretable en el vecindario perturbado del inmueble.", "ξ(x) = argmin_g L(f, g, π_x) + Ω(g)"), desc: "Explica una estimación concreta ajustando un modelo lineal simple alrededor de un inmueble: la pendiente local de cada característica, sea cual sea la caja negra." },
+      { id: 39, title: "MCO frente a Machine Learning", url: "https://mundo-valor.github.io/comparacion_OLSML/", cover: "MCOMLcomparativo.jpg", desc: "Una misma muestra, los mismos pliegues y las mismas métricas: ¿aporta algo Random Forest, XGBoost, LightGBM o CatBoost frente a la regresión lineal?" },
+      { id: 40, title: "Efectos espaciales: ¿qué procedimiento conviene?", url: "https://mundo-valor.github.io/comparativo_espacial/", cover: "Efectosespaciales.jpg", desc: "MCO, regresión espacial (SAR y SEM), Regression Kriging, MGWR y filtrado con autovectores de Moran, sobre la misma muestra, los mismos pliegues y las mismas métricas. Cada uno activa un componente distinto del modelo." }
+    ];
+
+    function renderHerramientas() {
+      const grid = document.getElementById('herramientasGrid');
+      if (!grid) return;
+      grid.innerHTML = '';
+      
+      herramientasData.forEach(item => {
+        const card = document.createElement('div');
+        card.className = 'catalog-card';
+        card.style.borderColor = "rgba(0, 112, 186, 0.3)";
+        card.innerHTML = `
+          <span class="item-badge" style="background: rgba(0, 112, 186, 0.2); color: #60a5fa; border-color: rgba(0, 112, 186, 0.4);">Herramienta</span>
+          <div class="card-thumbnail">
+            <img src="${item.cover}" alt="Herramienta ${item.id}" onerror="this.onerror=null; this.src='LOGO EVMC.jpg';">
+          </div>
+          <h3>${item.title}</h3>
+          <p>${item.desc}</p>
+          <div class="card-footer" style="margin-top:auto;">
+            <a href="${item.url}" target="_blank" rel="noopener noreferrer" class="btn btn-red" style="padding: 0.5rem 1.2rem; font-size: 0.85rem; width:100%; justify-content:center; background: linear-gradient(135deg, #1d4ed8, #2563eb); box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4);">Abrir Herramienta ➔</a>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    const items = [
+      { id: 1, title: "1. Aprendizaje Guiado", file: "1. Aprendizaje Guiado.pdf", cover: "1. Aprendizaje Guiado Portada.png" },
+      { id: 2, title: "2. Aprendizaje Guiado", file: "2. Aprendizaje Guiado.pdf", cover: "2. Aprendizaje Guiado Portada.png" },
+      { id: 3, title: "3. Aprendizaje Guiado", file: "3. Aprendizaje Guiado.pdf", cover: "3. Aprendizaje Guiado Portada - copia.png" },
+      { id: 4, title: "4. Aprendizaje Guiado", file: "4. Aprendizaje Guiado.pdf", cover: "4. Aprendizaje Guiado Portada.png" },
+      { id: 5, title: "5. Aprendizaje Guiado", file: "5. Aprendizaje Guiado.pdf", cover: "5. Aprendizaje Guiado Portada.png" },
+      { id: 6, title: "6. Aprendizaje Guiado", file: "6. Aprendizaje Guiado.pdf", cover: "6. Aprendizaje Guiado Portada.png" },
+      { id: 7, title: "7. Aprendizaje Guiado", file: "7. Aprendizaje Guiado.pdf", cover: "7 Aprendizaje Guiado Portada.png" },
+      { id: 8, title: "8. Aprendizaje Guiado", file: "8. Aprendizaje Guiado.pdf", cover: "8. Aprendizaje Guiado Portada.png" },
+      { id: 9, title: "9. Aprendizaje Guiado", file: "9. Aprendizaje Guiado.pdf", cover: "9. Aprendizaje Guiado Portada.png" },
+      { id: 10, title: "10. Aprendizaje Guiado", file: "10. Aprendizaje Guiado.pdf", cover: "10. Aprendizaje Guiado Portada.png" },
+      { id: 11, title: "11. Aprendizagem Guiada", file: "11. Aprendizagem Guiada.pdf", cover: "11. Aprendizagem Guiada Portada.png" },
+      { id: 12, title: "12. Aprendizaje Guiado", file: "12. Aprendizaje Guiado.pdf", cover: "12. Aprendizaje Guiado Portada.png" },
+      { id: 13, title: "13. Aprendizaje Guiado", file: "13. Aprendizaje Guiado.pdf", cover: "13. Aprendizaje Guiado Portada.png" },
+      { id: 14, title: "14. Aprendizaje Guiado", file: "14. Aprendizaje Guiado.pdf", cover: "14. Aprendizaje Guiado Portada.png" },
+      { id: 15, title: "15. Aprendizagem Guiada", file: "15. Aprendizagem Guiada.pdf", cover: "15. Aprendizagem Guiada Portada.png" },
+      { id: 16, title: "16. Aprendizaje Guiado", file: "16. Aprendizaje Guiado.pdf", cover: "16. Aprendizaje Guiado Portada.png" },
+      { id: 17, title: "17. Aprendizaje Guiado", file: "17. Aprendizaje Guiado.pdf", cover: "17. Aprendizaje Guiado Portada.png" },
+      { id: 18, title: "18. Aprendizaje Guiado", file: "18. Aprendizaje Guiado.pdf", cover: "18. Aprendizaje Guiado Portada.png" },
+      { id: 19, title: "19. Aprendizaje Guiado", file: "19. Aprendizaje Guiado.pdf", cover: "19. Aprendizaje Guiado Portada.png" },
+      { id: 20, title: "20. Aprendizaje Guiado", file: "20. Aprendizaje Guiado.pdf", cover: "20. Aprendizaje Guiado Portada.png" },
+      { id: 21, title: "21. Aprendizaje Guiado", file: "21. Aprendizaje Guiado.pdf", cover: "21. Aprendizaje Guiado Portada.png" },
+      { id: 22, title: "22. Aprendizaje Guiado", file: "22. Aprendizaje Guiado.pdf", cover: "22. Aprendizaje Guiado Portada.png" },
+      { id: 23, title: "23. Aprendizaje Guiado", file: "23. Aprendizaje Guiado.pdf", cover: "23. Aprendizaje Guiado Portada.png" },
+      { id: 24, title: "24. Aprendizaje Guiado", file: "24. Aprendizaje Guiado.pdf", cover: "24. Aprendizaje Guiado Portada.png" },
+      { id: 25, title: "25. Aprendizaje Guiado", file: "25. Aprendizaje Guiado.pdf", cover: "25. Aprendizaje Guiado Portada.png" }
+    ];
+
+    function renderCatalog() {
+      const grid = document.getElementById('catalogGrid');
+      if (!grid) return;
+      grid.innerHTML = '';
+      
+      items.forEach(item => {
+        const card = document.createElement('div');
+        card.className = 'catalog-card';
+        card.innerHTML = `
+          <span class="item-badge">Vol. ${item.id}</span>
+          <div class="card-thumbnail">
+            <img src="${item.cover}" alt="Portada ${item.title}" onerror="this.onerror=null; this.src='7 Aprendizaje Guiado Portada.png';">
+          </div>
+          <h3>${item.title}</h3>
+          <div class="card-footer">
+            <button class="btn btn-red" onclick="openViewer('${item.file}', '${item.title}')" style="padding: 0.5rem 1.2rem; font-size: 0.85rem; width:100%; justify-content:center;">📖 Leer en Visor</button>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    function openViewer(pdfFile, title) {
+      document.getElementById('modalTitle').innerText = title;
+      document.getElementById('pdfFrame').src = pdfFile;
+      document.getElementById('pdfModal').style.display = 'flex';
+    }
+
+    function closeViewer() {
+      document.getElementById('pdfModal').style.display = 'none';
+      document.getElementById('pdfFrame').src = '';
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      renderHerramientas();
+      renderCatalog();
+    });
+  </script>
+</body>
+</html>
